@@ -1,0 +1,662 @@
+[
+  {
+    "first": "Ruth",
+    "last": "Landau",
+    "type": "Faculty Invited Speaker",
+    "track": "Pain",
+    "status": "Confirmed",
+    "bio": "Yes",
+    "photo": "",
+    "tasks": 3
+  },
+  {
+    "first": "Guasch",
+    "last": "Emilia",
+    "type": "Faculty Invited Speaker",
+    "track": "Obstetric",
+    "status": "Confirmed",
+    "bio": "Yes",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Richebe",
+    "last": "Philippe",
+    "type": "Faculty Invited Speaker",
+    "track": "Pain",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Miles",
+    "last": "Berger",
+    "type": "Faculty Invited Speaker",
+    "track": "Delirium/PostEEG",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 3
+  },
+  {
+    "first": "Basak",
+    "last": "Ceyda Meço",
+    "type": "Faculty Invited Speaker",
+    "track": "Geriatrics",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Matthias",
+    "last": "Kreuzer",
+    "type": "Faculty Invited Speaker",
+    "track": "EEG sadna",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Maxime",
+    "last": "Cannesson",
+    "type": "Faculty Invited Speaker",
+    "track": "Hemodynamics and monitoring",
+    "status": "Confirmed",
+    "bio": "Yes",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Serban",
+    "last": "Bubenek",
+    "type": "ISA Invited Speaker",
+    "track": "Hemodynamics and monitoring",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Eva",
+    "last": "Rivas",
+    "type": "Invited Speaker",
+    "track": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Nadav",
+    "last": "Levy",
+    "type": "Invited Speaker",
+    "track": "Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Sara",
+    "last": "Goldhaber Fiebert",
+    "type": "Invited Speaker",
+    "track": "Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Joana",
+    "last": "Berger",
+    "type": "Faculty Invited Speaker",
+    "track": "Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Anne-Marie",
+    "last": "Camilleri Podesta",
+    "type": "Plenary Speaker",
+    "track": "Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Carolina",
+    "last": "Soledad Romero",
+    "type": "Faculty Invited Speaker",
+    "track": "Guidelines",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Maurizio",
+    "last": "Cecconi",
+    "type": "Plenary Speaker",
+    "track": "Intensive care",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Daniel",
+    "last": "Talmor",
+    "type": "Faculty Invited Speaker",
+    "track": "Intensive care",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 3
+  },
+  {
+    "first": "Mervyn",
+    "last": "Singer",
+    "type": "Faculty Invited Speaker",
+    "track": "Intensive care",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Julia",
+    "last": "Wendon",
+    "type": "Faculty Invited Speaker",
+    "track": "Intensive care",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Ilona",
+    "last": "Bobek",
+    "type": "Faculty Invited Speaker",
+    "track": "Intensive care",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Daniela",
+    "last": "Filipescu",
+    "type": "ISA Invited Speaker",
+    "track": "Transfusion",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 3
+  },
+  {
+    "first": "Arash",
+    "last": "Afshari",
+    "type": "Faculty Invited Speaker",
+    "track": "Transfusion",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Jens",
+    "last": "Meier",
+    "type": "Faculty Invited Speaker",
+    "track": "Transfusion",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Federico",
+    "last": "Bilotta",
+    "type": "Faculty Invited Speaker",
+    "track": "Neuroanesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Robina",
+    "last": "Matyal",
+    "type": "Faculty",
+    "track": "Cardiac anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Mahmood",
+    "last": "Feroze",
+    "type": "Faculty",
+    "track": "Cardiac anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Steffen",
+    "last": "Rex",
+    "type": "Faculty Invited Speaker",
+    "track": "Cardiac anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 3
+  },
+  {
+    "first": "Andrea",
+    "last": "Szelsky",
+    "type": "Faculty Invited Speaker",
+    "track": "Cardiac anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Laszlo",
+    "last": "Vutskits",
+    "type": "Faculty Invited Speaker",
+    "track": "Pediatric anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Andrew",
+    "last": "Davidson",
+    "type": "Faculty Invited Speaker",
+    "track": "Pediatric anesthesia",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Eleana",
+    "last": "Garini",
+    "type": "Faculty Invited Speaker",
+    "track": "Pediatric anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Ram",
+    "last": "Roth",
+    "type": "Invited Speaker",
+    "track": "Airway",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Daniela",
+    "last": "Ionescu",
+    "type": "ISA Invited Speaker",
+    "track": "General anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Turan",
+    "last": "Alparslan",
+    "type": "Faculty Invited Speaker",
+    "track": "Big Data and Outcomes Research",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Marcelo",
+    "last": "Gamma de Abreu",
+    "type": "Faculty Invited Speaker",
+    "track": "Big Data and Outcomes Research\nVentilation",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Dan",
+    "last": "Sessler",
+    "type": "Faculty Invited Speaker",
+    "track": "Big Data and Outcomes Research",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Brian",
+    "last": "Bateman",
+    "type": "Faculty Invited Speaker",
+    "track": "Big Data and Outcomes Research",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "David",
+    "last": "Reich",
+    "type": "Faculty Invited Speaker",
+    "track": "Safety/Leadership",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Joel",
+    "last": "Symons",
+    "type": "Faculty Invited Speaker",
+    "track": "Perioperative Medicine",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Bernhard",
+    "last": "Riedel",
+    "type": "Faculty Invited Speaker",
+    "track": "Perioperative Medicine",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Eleni",
+    "last": "Moka",
+    "type": "Symposium Keynote Guest",
+    "track": "Regional",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Gabriella",
+    "last": "Iohom",
+    "type": "Faculty Invited Speaker",
+    "track": "Regional",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Leo",
+    "last": "Krivskiy",
+    "type": "Faculty Invited Speaker",
+    "track": "Endurance/Exploration",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Misha",
+    "last": "Perouansky",
+    "type": "Faculty Invited Speaker",
+    "track": "Basic Science",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Ron",
+    "last": "Samet",
+    "type": "Invited Speaker",
+    "track": "ISAAC 18",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Lara",
+    "last": "Zador",
+    "type": "Invited Speaker",
+    "track": "Leadership/Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Michael",
+    "last": "Lewis",
+    "type": "Invited Speaker",
+    "track": "Leadership/Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Michael",
+    "last": "O'Connor",
+    "type": "Faculty Invited Speaker",
+    "track": "ICU/Resuscitation",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Lorenzo",
+    "last": "Ball",
+    "type": "Faculty Invited Speaker",
+    "track": "ICU/Ventilation",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Gill",
+    "last": "Abir",
+    "type": "Invited Speaker",
+    "track": "ISAAC 18",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Greg",
+    "last": "Fisher",
+    "type": "Faculty Invited Speaker",
+    "track": "Cancer",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Carolina",
+    "last": "Haylock-Loor",
+    "type": "Faculty Invited Speaker",
+    "track": "Leadership/Education",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Chirojit",
+    "last": "Mukherjee",
+    "type": "Faculty Invited Speaker",
+    "track": "Cardiac anesthesia",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Vladimir",
+    "last": "Nekhendzy",
+    "type": "Invited Speaker",
+    "track": "Airway",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Michaela",
+    "last": "Farber",
+    "type": "Faculty Invited Speaker",
+    "track": "Obstetrics Anesthesia",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Jake",
+    "last": "Beilin",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Meg",
+    "last": "Rosenblatt",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Joshua",
+    "last": "Mincer",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 1
+  },
+  {
+    "first": "Vaida",
+    "last": "Sonia",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Jacob",
+    "last": "Refael",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "David",
+    "last": "Polaner",
+    "type": "WAIT",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Phillip",
+    "last": "Wagner",
+    "type": "WAIT",
+    "track": "Regional",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Azocar",
+    "last": "Ruben",
+    "type": "WAIT",
+    "track": "Regional",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Ed",
+    "last": "Cohen",
+    "type": "",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 2
+  },
+  {
+    "first": "Yaster",
+    "last": "Myron",
+    "type": "WAIT",
+    "track": "ISAAC 18",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Luis",
+    "last": "Alberto Rodriguez Linares",
+    "type": "WAIT",
+    "track": "POCUS",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Rudin",
+    "last": "Domi",
+    "type": "WAIT",
+    "track": "TBC",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  }
+]
