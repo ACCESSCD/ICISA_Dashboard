@@ -440,16 +440,6 @@
     "tasks": 2
   },
   {
-    "first": "Lara",
-    "last": "Zador",
-    "type": "Invited Speaker",
-    "track": "Leadership/Education",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1
-  },
-  {
     "first": "Michael",
     "last": "Lewis",
     "type": "Invited Speaker",
@@ -480,16 +470,6 @@
     "tasks": 2
   },
   {
-    "first": "Gill",
-    "last": "Abir",
-    "type": "Invited Speaker",
-    "track": "ISAAC 18",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
     "first": "Greg",
     "last": "Fisher",
     "type": "Faculty Invited Speaker",
@@ -508,16 +488,6 @@
     "bio": "",
     "photo": "",
     "tasks": 0
-  },
-  {
-    "first": "Chirojit",
-    "last": "Mukherjee",
-    "type": "Faculty Invited Speaker",
-    "track": "Cardiac anesthesia",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 1
   },
   {
     "first": "Vladimir",
@@ -550,16 +520,6 @@
     "tasks": 0
   },
   {
-    "first": "Meg",
-    "last": "Rosenblatt",
-    "type": "WAIT",
-    "track": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
     "first": "Joshua",
     "last": "Mincer",
     "type": "WAIT",
@@ -570,50 +530,10 @@
     "tasks": 1
   },
   {
-    "first": "Vaida",
-    "last": "Sonia",
-    "type": "WAIT",
-    "track": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
     "first": "Jacob",
     "last": "Refael",
     "type": "WAIT",
     "track": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "David",
-    "last": "Polaner",
-    "type": "WAIT",
-    "track": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Phillip",
-    "last": "Wagner",
-    "type": "WAIT",
-    "track": "Regional",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Azocar",
-    "last": "Ruben",
-    "type": "WAIT",
-    "track": "Regional",
     "status": "Pending",
     "bio": "",
     "photo": "",
@@ -628,16 +548,6 @@
     "bio": "",
     "photo": "",
     "tasks": 2
-  },
-  {
-    "first": "Yaster",
-    "last": "Myron",
-    "type": "WAIT",
-    "track": "ISAAC 18",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
   },
   {
     "first": "Luis",
