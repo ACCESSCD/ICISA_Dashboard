@@ -7,29 +7,50 @@
   <link rel="manifest" href="manifest-faculty.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <meta name="theme-color" content="#233187" />
-  <meta http-equiv="refresh" content="0; url=https://docs.google.com/spreadsheets/d/1Caw4cIvFyAh8hFtY03HxZJuMAHcEoh69/edit?gid=522678209#gid=522678209" />
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       background: #233187;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       font-family: 'Segoe UI', Arial, sans-serif;
       color: #fff;
-      flex-direction: column;
-      gap: 16px;
+      gap: 28px;
+      padding: 32px;
     }
-    img { width: 120px; opacity: .9; }
-    p { font-size: .95rem; opacity: .7; margin: 0; }
+    img { width: 160px; }
+    h1 { font-size: 1.4rem; font-weight: 700; text-align: center; }
+    a.open-btn {
+      display: block;
+      background: #fff;
+      color: #233187;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-align: center;
+    }
+    a.open-btn:active { opacity: .8; }
+    p.hint {
+      font-size: .8rem;
+      opacity: .55;
+      text-align: center;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
   <img src="icon-512.png" alt="ICISA logo" />
-  <p>Opening Faculty List…</p>
-  <script>
-    window.location.replace("https://docs.google.com/spreadsheets/d/1Caw4cIvFyAh8hFtY03HxZJuMAHcEoh69/edit?gid=522678209#gid=522678209");
-  </script>
+  <h1>ICISA Faculty List</h1>
+  <a class="open-btn"
+     href="https://docs.google.com/spreadsheets/d/1Caw4cIvFyAh8hFtY03HxZJuMAHcEoh69/edit?gid=522678209#gid=522678209"
+     target="_blank">
+    Open Faculty List
+  </a>
+  <p class="hint">To add this icon to your home screen:<br>tap ⋮ (top right) → Add to Home screen</p>
 </body>
 </html>
