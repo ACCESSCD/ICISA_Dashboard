@@ -1,9 +1,19 @@
 [
   {
+    "first": "Ron",
+    "last": "George",
+    "type": "",
+    "track": "Obstetric",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
     "first": "Ruth",
     "last": "Landau",
     "type": "Faculty Invited Speaker",
-    "track": "Pain",
+    "track": "Obstetric",
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
@@ -38,6 +48,16 @@
     "bio": "",
     "photo": "",
     "tasks": 3
+  },
+  {
+    "first": "Itai",
+    "last": "Bentov",
+    "type": "",
+    "track": "Geriatrics",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
   },
   {
     "first": "Basak",
@@ -398,6 +418,16 @@
     "bio": "",
     "photo": "",
     "tasks": 1
+  },
+  {
+    "first": "Steffen",
+    "last": "Rex",
+    "type": "",
+    "track": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 3
   },
   {
     "first": "Michael",
