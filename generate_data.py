@@ -14,7 +14,7 @@ from pathlib import Path
 import openpyxl
 
 FACULTY_PATH = Path(r'C:\Users\carol\PycharmProjects\ICISA information\Faculty list follow up.xlsx')
-PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 0305.xlsx')
+PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 0305 (4).xlsx')
 OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
 EXCLUDE_TYPES = {'DO NOT INVITE'}

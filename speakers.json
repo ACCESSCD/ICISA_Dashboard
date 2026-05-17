@@ -7,7 +7,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 1
   },
   {
     "first": "Ruth",
@@ -17,7 +17,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 3
+    "tasks": 2
   },
   {
     "first": "Guasch",
@@ -57,7 +57,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 2
   },
   {
     "first": "Basak",
@@ -157,7 +157,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2
   },
   {
     "first": "Maurizio",
@@ -287,7 +287,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2
   },
   {
     "first": "Daniela",
@@ -427,7 +427,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 3
+    "tasks": 4
   },
   {
     "first": "Michael",
@@ -467,7 +467,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2
   },
   {
     "first": "Michaela",

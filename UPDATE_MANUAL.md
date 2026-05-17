@@ -1,3 +1,11 @@
+Pycharm
+Terminal
+Claude
+Setup virtual environment
+
+pls regenerate the data C:\Users\carol\PycharmProjects\EA26_AnaesthCareEurope\venv\Scripts\python.exe generate_data.py from this path            
+  "C:\Users\carol\PycharmProjects\ICISA information" on this site https://github.com/ACCESSCD/ICISA_Dashboard    
+
 # ICISA Dashboard — Update Manual
 
 ## Your two source files
@@ -100,3 +108,4 @@ C:\Users\carol\PycharmProjects\EA26_AnaesthCareEurope\venv\Scripts\python.exe ge
 git add speakers.json
 git commit -m "Update speaker data" && git push
 ```
+
