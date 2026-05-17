@@ -91,14 +91,18 @@ def load_speakers():
         seen.add(key)
 
         speakers.append({
-            'first':  first,
-            'last':   last,
-            'type':   stype,
-            'track':  clean(row[4]),
-            'status': status,
-            'bio':    'Yes' if (len(row) > 21 and row[21]) else '',
-            'photo':  'Yes' if (len(row) > 22 and row[22]) else '',
-            'tasks':  0,                  # filled below
+            'first':   first,
+            'last':    last,
+            'type':    stype,
+            'track':   clean(row[4]),
+            'country': clean(row[7]),
+            'email':   clean(row[9]),
+            'affil':   clean(row[13]),
+            'inv':     'Yes' if (len(row) > 14 and clean(row[14]).upper() == 'V') else '',
+            'status':  status,
+            'bio':     'Yes' if (len(row) > 21 and row[21]) else '',
+            'photo':   'Yes' if (len(row) > 22 and row[22]) else '',
+            'tasks':   0,                 # filled below
         })
 
     wb.close()

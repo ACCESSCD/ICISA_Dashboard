@@ -164,10 +164,14 @@
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Country</th>
             <th>Track</th>
+            <th>Affiliation</th>
+            <th>Email</th>
             <th>Status</th>
             <th class="sort-link" onclick="sortBy('tasks')" title="Click to sort">
               Sessions &#x25BE;</th>
+            <th>Inv.</th>
             <th>Bio</th>
             <th>Photo</th>
           </tr>
@@ -289,7 +293,7 @@ function renderTable(speakers) {
 
   const tbody = document.getElementById('tbody');
   if (!sorted.length) {
-    tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted py-4">No speakers match the filters.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="11" class="text-center text-muted py-4">No speakers match the filters.</td></tr>';
     return;
   }
 
@@ -301,9 +305,13 @@ function renderTable(speakers) {
     return `<tr>
       <td>${esc(s.first)}</td>
       <td><strong>${esc(s.last)}</strong></td>
+      <td>${esc(s.country)}</td>
       <td>${esc(s.track)}</td>
+      <td>${esc(s.affil)}</td>
+      <td>${s.email ? `<a href="mailto:${esc(s.email)}" style="font-size:.8rem">${esc(s.email)}</a>` : ''}</td>
       <td><span class="badge ${bClass} px-2 py-1 rounded-pill">${s.status}</span></td>
       <td style="${tColor}">${s.tasks}</td>
+      <td>${s.inv   ? '<span class="check">&#10003;</span>' : ''}</td>
       <td>${s.bio   ? '<span class="check">&#10003;</span>' : ''}</td>
       <td>${s.photo ? '<span class="check">&#10003;</span>' : ''}</td>
     </tr>`;
