@@ -64,12 +64,15 @@ def get_status(row):
 def load_speakers():
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
-        wb = openpyxl.load_workbook(FACULTY_PATH, read_only=True, data_only=True)
+        wb = openpyxl.load_workbook(FACULTY_PATH, data_only=True)
 
     ws = wb['International Speakers']
     speakers, seen = [], set()
 
-    for row in ws.iter_rows(min_row=3, values_only=True):
+    for row in ws.iter_rows(min_row=3):
+        if ws.row_dimensions[row[0].row].hidden:
+            continue
+        row = tuple(cell.value for cell in row)
         first = clean(row[5])
         last  = clean(row[6])
         if not first or first == 'None':
@@ -114,7 +117,7 @@ def load_speakers():
 def count_tasks(speakers):
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
-        wb2 = openpyxl.load_workbook(PGM_PATH, read_only=True, data_only=True)
+        wb2 = openpyxl.load_workbook(PGM_PATH, data_only=True)
 
     ws = wb2['Sheet1']
     time_re = re.compile(r'^\d{1,2}:\d{2}')
@@ -122,11 +125,13 @@ def count_tasks(speakers):
 
     # Collect short lines (1-5 words) — these are where speaker names appear
     short_lines = []
-    for row in ws.iter_rows(values_only=True):
+    for row in ws.iter_rows():
+        if ws.row_dimensions[row[0].row].hidden:
+            continue
         for cell in row:
-            if cell is None:
+            if cell.value is None:
                 continue
-            text = str(cell).strip()
+            text = str(cell.value).strip()
             if text in ('None', ''):
                 continue
             for line in text.split('\n'):
