@@ -13,7 +13,11 @@ from pathlib import Path
 
 import openpyxl
 
-FACULTY_PATH = Path(r"C:\Users\carol\PycharmProjects\ICISA information\Faculty list follow up (Kaleidoscope Conferences & Events's conflicted copy 2026-05-26).xlsx")
+_ICISA_DIR   = Path(r'C:\Users\carol\PycharmProjects\ICISA information')
+_candidates  = sorted(_ICISA_DIR.glob('Faculty list follow up*.xlsx'), key=lambda p: p.stat().st_mtime, reverse=True)
+if not _candidates:
+    raise FileNotFoundError(f'No Faculty list follow up*.xlsx found in {_ICISA_DIR}')
+FACULTY_PATH = _candidates[0]
 PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 2005 (5).xlsx')
 OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
