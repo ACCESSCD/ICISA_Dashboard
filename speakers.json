@@ -11,7 +11,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Guasch",
@@ -25,7 +25,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 1
+    "tasks": 0
   },
   {
     "first": "Richebe",
@@ -53,7 +53,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3
+    "tasks": 2
   },
   {
     "first": "Basak",
@@ -62,20 +62,6 @@
     "track": "Geriatrics",
     "country": "Turkey",
     "email": "basakceyda@hotmail.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1
-  },
-  {
-    "first": "Matthias",
-    "last": "Kreuzer",
-    "type": "Faculty Invited Speaker",
-    "track": "EEG sadna",
-    "country": "Germany",
-    "email": "m.kreuzer@tum.de",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -109,7 +95,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0
   },
   {
     "first": "Eva",
@@ -123,7 +109,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0
   },
   {
     "first": "Nadav",
@@ -154,34 +140,6 @@
     "tasks": 1
   },
   {
-    "first": "Joana",
-    "last": "Berger",
-    "type": "Faculty Invited Speaker",
-    "track": "Education",
-    "country": "",
-    "email": "joanamberger@gmail.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Anthony",
-    "last": "R. Absalom",
-    "type": "",
-    "track": "",
-    "country": "Netherlands",
-    "email": "",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
     "first": "Anne-Marie",
     "last": "Camilleri Podesta",
     "type": "Plenary Speaker",
@@ -193,7 +151,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 3
   },
   {
     "first": "Carolina",
@@ -207,7 +165,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Maurizio",
@@ -235,7 +193,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3
+    "tasks": 2
   },
   {
     "first": "Mervyn",
@@ -305,7 +263,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Jens",
@@ -417,7 +375,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Daniela",
@@ -501,7 +459,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0
   },
   {
     "first": "Joel",
@@ -515,7 +473,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0
   },
   {
     "first": "Bernhard",
@@ -529,7 +487,21 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 0
+  },
+  {
+    "first": "Eleni",
+    "last": "Moka",
+    "type": "Symposium Keynote Guest",
+    "track": "Regional",
+    "country": "Greece",
+    "email": "mokaeleni@hotmail.com",
+    "affil": "",
+    "inv": "Yes",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
   },
   {
     "first": "Gabriella",
@@ -557,7 +529,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2
   },
   {
     "first": "Misha",
@@ -627,7 +599,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Carolina",
@@ -655,7 +627,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Michaela",
@@ -679,7 +651,7 @@
     "country": "",
     "email": "",
     "affil": "",
-    "inv": "",
+    "inv": "Yes",
     "status": "Pending",
     "bio": "",
     "photo": "",
@@ -693,11 +665,11 @@
     "country": "",
     "email": "",
     "affil": "",
-    "inv": "",
+    "inv": "Yes",
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1
   },
   {
     "first": "Jake",
@@ -706,6 +678,20 @@
     "track": "",
     "country": "US",
     "email": "yaakov.beilin@mountsinai.org",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Meg",
+    "last": "Rosenblatt",
+    "type": "WAIT",
+    "track": "",
+    "country": "US",
+    "email": "",
     "affil": "",
     "inv": "",
     "status": "Pending",
@@ -728,12 +714,68 @@
     "tasks": 1
   },
   {
+    "first": "Vaida",
+    "last": "Sonia",
+    "type": "WAIT",
+    "track": "",
+    "country": "US",
+    "email": "svaida@pennstatehealth.psu.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
     "first": "Jacob",
     "last": "Refael",
     "type": "WAIT",
     "track": "",
     "country": "US",
     "email": "Jacob.Raphael@jefferson.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "David",
+    "last": "Polaner",
+    "type": "WAIT",
+    "track": "",
+    "country": "US",
+    "email": "Polaner@uw.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Phillip",
+    "last": "Wagner",
+    "type": "WAIT",
+    "track": "Regional",
+    "country": "US",
+    "email": "",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0
+  },
+  {
+    "first": "Azocar",
+    "last": "Ruben",
+    "type": "WAIT",
+    "track": "Regional",
+    "country": "US",
+    "email": "",
     "affil": "",
     "inv": "",
     "status": "Pending",
@@ -753,7 +795,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 3
   },
   {
     "first": "Yaster",

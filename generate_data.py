@@ -13,8 +13,8 @@ from pathlib import Path
 
 import openpyxl
 
-FACULTY_PATH = Path(r'C:\Users\carol\PycharmProjects\ICISA information\Faculty list follow up.xlsx')
-PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 0305 (4).xlsx')
+FACULTY_PATH = Path(r"C:\Users\carol\PycharmProjects\ICISA information\Faculty list follow up (Kaleidoscope Conferences & Events's conflicted copy 2026-05-26).xlsx")
+PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 2005 (5).xlsx')
 OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
 EXCLUDE_TYPES = {'DO NOT INVITE'}
@@ -61,6 +61,21 @@ def get_status(row):
 
 # ── load speakers ────────────────────────────────────────────────────────────
 
+def _is_red_row(cells):
+    """Return True if any of the first 10 cells has a solid red background fill."""
+    for cell in cells[:10]:
+        fill = cell.fill
+        if fill and fill.fill_type == 'solid':
+            color = fill.fgColor
+            if color.type == 'rgb' and color.rgb not in ('00000000', 'FF000000'):
+                r = int(color.rgb[2:4], 16)
+                g = int(color.rgb[4:6], 16)
+                b = int(color.rgb[6:8], 16)
+                if r > 180 and g < 80 and b < 80:
+                    return True
+    return False
+
+
 def load_speakers():
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
@@ -71,6 +86,8 @@ def load_speakers():
 
     for row in ws.iter_rows(min_row=3):
         if ws.row_dimensions[row[0].row].hidden:
+            continue
+        if _is_red_row(row):
             continue
         row = tuple(cell.value for cell in row)
         first = clean(row[5])
