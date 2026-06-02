@@ -18,7 +18,12 @@ _candidates  = sorted(_ICISA_DIR.glob('Faculty list follow up*.xlsx'), key=lambd
 if not _candidates:
     raise FileNotFoundError(f'No Faculty list follow up*.xlsx found in {_ICISA_DIR}')
 FACULTY_PATH = _candidates[0]
-PGM_PATH     = Path(r'C:\Users\carol\PycharmProjects\ICISA information\PGM ICISA 2005 (5).xlsx')
+print(f'Using faculty file: {FACULTY_PATH.name}')
+_pgm_candidates = sorted(_ICISA_DIR.glob('PGM ICISA*.xlsx'), key=lambda p: p.stat().st_mtime, reverse=True)
+if not _pgm_candidates:
+    raise FileNotFoundError(f'No PGM ICISA*.xlsx found in {_ICISA_DIR}')
+PGM_PATH     = _pgm_candidates[0]
+print(f'Using programme file: {PGM_PATH.name}')
 OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
 EXCLUDE_TYPES = {'DO NOT INVITE'}
