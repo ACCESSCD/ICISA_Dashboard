@@ -16,6 +16,8 @@
       --no-task:   #c0392b;
       --heavy:     #8e44ad;
       --spelling:  #c0841a;
+      --sponsor:   #1a6e3c;
+      --todo:      #5b3fa0;
     }
     body { background:#f2f4f8; font-family:'Segoe UI',Arial,sans-serif; font-size:.9rem; }
 
@@ -151,6 +153,28 @@
     </div>
   </div>
 
+  <!-- ── Sponsorship panels ── -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-5">
+      <div class="panel">
+        <div class="panel-title" style="color:var(--sponsor)">
+          Committed sponsorship
+          <span id="sponsor-total" style="font-weight:400;color:#aaa;"></span>
+        </div>
+        <div id="sponsor-list"></div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="panel">
+        <div class="panel-title" style="color:var(--todo)">
+          Companies to follow up
+          <span id="todo-count" style="font-weight:400;color:#aaa;"></span>
+        </div>
+        <div class="name-list" id="todo-list"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Table ── -->
   <div class="panel">
     <div class="row g-2 mb-3 filter-bar align-items-end">
@@ -213,6 +237,13 @@
 <script>
 const SC = { Confirmed: '#27ae60', Pending: '#e67e22' };
 let ALL = [], sortCol = 'tasks', sortDir = -1;
+
+fetch('sponsorship.json')
+  .then(r => r.json())
+  .then(data => {
+    renderSponsorList(data.committed, data.total);
+    renderTodoList(data.todo);
+  });
 
 fetch('speakers.json')
   .then(r => r.json())
@@ -374,6 +405,44 @@ function renderTable(speakers) {
       <td>${s.photo ? '<span class="check">&#10003;</span>' : ''}</td>
     </tr>`;
   }).join('');
+}
+
+// ── Sponsorship panels ─────────────────────────────────────────────────────
+function renderSponsorList(committed, total) {
+  document.getElementById('sponsor-total').textContent =
+    committed.length ? `— Total €${total.toLocaleString()}` : '';
+
+  const el = document.getElementById('sponsor-list');
+  if (!committed.length) {
+    el.innerHTML = '<div class="empty-note">No commitments recorded yet</div>';
+    return;
+  }
+  el.innerHTML = committed.map(c =>
+    `<div class="name-item" style="background:#f0faf5;border-left:3px solid var(--sponsor);justify-content:space-between;">
+      <span style="font-weight:600">${esc(c.name)}</span>
+      <span style="color:var(--sponsor);font-weight:700;font-size:.9rem;">€${c.amount.toLocaleString()}</span>
+    </div>`
+  ).join('') +
+  `<div style="text-align:right;padding:8px 10px 2px;font-weight:700;color:var(--sponsor);border-top:1px solid #d0eadb;margin-top:6px;">
+    Total: €${total.toLocaleString()}
+  </div>`;
+}
+
+function renderTodoList(todo) {
+  document.getElementById('todo-count').textContent =
+    todo.length ? `(${todo.length})` : '';
+
+  const el = document.getElementById('todo-list');
+  if (!todo.length) {
+    el.innerHTML = '<div class="empty-note">No follow-ups pending</div>';
+    return;
+  }
+  el.innerHTML = todo.map(t =>
+    `<div class="name-item" style="background:#f5f2fc;border-left:3px solid var(--todo);flex-wrap:wrap;gap:2px;">
+      <span style="font-weight:600">${esc(t.name)}</span>
+      <span style="color:#666;font-size:.8rem;margin-left:auto;padding-left:12px;font-style:italic">${esc(t.note)}</span>
+    </div>`
+  ).join('');
 }
 
 function esc(s) {

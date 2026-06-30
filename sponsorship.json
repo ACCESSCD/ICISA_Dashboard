@@ -1,0 +1,55 @@
+{
+  "committed": [
+    {
+      "name": "Lapidot",
+      "amount": 4500.0
+    },
+    {
+      "name": "Jehova Witness",
+      "amount": 2500.0
+    }
+  ],
+  "todo": [
+    {
+      "name": "Mindray (Bepex) Sponsored Lunch",
+      "note": "meeting TBD"
+    },
+    {
+      "name": "BD",
+      "note": "meeting Hugo 30th June 2026"
+    },
+    {
+      "name": "Edwards (Tzamal)",
+      "note": "smaller"
+    },
+    {
+      "name": "Eltec",
+      "note": "local only"
+    },
+    {
+      "name": "Gazit",
+      "note": "not much"
+    },
+    {
+      "name": "Medtechnica",
+      "note": "meeting 30th June 2026"
+    },
+    {
+      "name": "Medtronic",
+      "note": "plan meeting"
+    },
+    {
+      "name": "MSD",
+      "note": "no"
+    },
+    {
+      "name": "Masimo (Medtechnica)",
+      "note": "Florie"
+    },
+    {
+      "name": "Levant",
+      "note": "plan meeting with Eran"
+    }
+  ],
+  "total": 7000.0
+}
