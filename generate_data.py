@@ -29,7 +29,13 @@ OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
 EXCLUDE_TYPES = {'DO NOT INVITE'}
 
-# Minimum first-name length to use for spelling mismatch detection.
+# Speakers removed at organiser request (not yet marked Declined in Excel)
+MANUAL_EXCLUDE = {
+    ('meg',   'rosenblatt'),
+    ('vaida', 'sonia'),
+}
+
+# Minimum first-name length for spelling-mismatch detection.
 # Short names (e.g. "David", "Nadav") are too common and cause false positives.
 MIN_FIRST_NAME_LEN = 6
 
@@ -117,7 +123,10 @@ def load_speakers():
 
         status = get_status(row)
         if status == 'Declined':
-            continue                      # excluded per user request
+            continue
+
+        if (norm(first), norm(last)) in MANUAL_EXCLUDE:
+            continue
 
         key = (norm(first), norm(last))
         if key in seen:
@@ -149,25 +158,37 @@ def load_speakers():
 _MOD_PREFIX = re.compile(r'^moderator\s*:?\s*', re.I)
 _MOD_ANY    = re.compile(r'moderator', re.I)
 _TIME_RE    = re.compile(r'^\d{1,2}:\d{2}')
+_CFW_PREFIX = re.compile(r'^CFW\s*:\s*', re.I)
+_DASH_RE    = re.compile(r'\s[-–]\s')
+
+
+def _add(short_lines, all_raw, all_norm, text, for_counting=True):
+    nl = norm(text)
+    if for_counting:
+        short_lines.append(nl)
+    all_raw.append(text)
+    all_norm.append(nl)
 
 
 def _collect_programme_lines():
     """
-    Return two parallel lists (raw, normalised) of candidate name lines
-    from the programme, and a separate list of short_lines used for exact
-    task counting.
-
-    Moderator lines are included: the name is extracted from
-    "Moderator: First Last" and counted as a session assignment.
+    Return:
+      short_lines — normalised 1-5 word chunks used for exact task counting.
+                    Includes moderator names and names extracted from
+                    'Title - Speaker' and 'CFW: Speaker - Title' formats.
+      all_raw / all_norm — broader parallel lists used for spelling detection,
+                    including medium-length lines and comma-list parts.
+      long_norm   — normalised lines of 6+ words, used for second-pass matching
+                    of 'Speaker Name Talk Title...' format.
     """
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
         wb = openpyxl.load_workbook(PGM_PATH, data_only=True)
     ws = wb['Sheet1']
 
-    short_lines = []   # 1-5 word lines used for task counting
-    all_raw     = []   # broader set used for spelling detection
-    all_norm    = []
+    short_lines = []
+    all_raw, all_norm = [], []
+    long_norm = []
 
     for row in ws.iter_rows():
         if ws.row_dimensions[row[0].row].hidden:
@@ -182,32 +203,59 @@ def _collect_programme_lines():
                 line = line.strip()
                 if not line or _TIME_RE.match(line):
                     continue
+
+                # Strip planning-note prefix ("CFW: ...")
+                line = _CFW_PREFIX.sub('', line).strip()
+                if not line:
+                    continue
+
+                # Moderator lines: extract name after the prefix
                 if _MOD_ANY.search(line):
-                    # Extract the speaker name from "Moderator: First Last"
                     name_part = _MOD_PREFIX.sub('', line).strip()
                     if name_part and 1 <= len(name_part.split()) <= 4:
-                        nl = norm(name_part)
-                        short_lines.append(nl)
-                        all_raw.append(name_part)
-                        all_norm.append(nl)
-                elif 1 <= len(line.split()) <= 5:
-                    nl = norm(line)
-                    short_lines.append(nl)
-                    all_raw.append(line)
-                    all_norm.append(nl)
-                elif len(line.split()) <= 8:
-                    # Wider net for spelling detection only
-                    all_raw.append(line)
-                    all_norm.append(norm(line))
+                        _add(short_lines, all_raw, all_norm, name_part)
+                    continue
+
+                words = line.split()
+
+                # "Title - Speaker Name" or "Speaker - Title": extract each
+                # segment separated by a dash; short segments are likely names.
+                if _DASH_RE.search(line):
+                    segments = _DASH_RE.split(line)
+                    for seg in segments:
+                        seg = seg.strip()
+                        seg_words = seg.split()
+                        if 1 <= len(seg_words) <= 4:
+                            _add(short_lines, all_raw, all_norm, seg)
+                        elif len(seg_words) <= 8:
+                            _add(short_lines, all_raw, all_norm, seg, for_counting=False)
+
+                # Comma-separated panel lists: split and add each part
+                if ',' in line and len(words) <= 15:
+                    for part in line.split(','):
+                        part = part.strip()
+                        if part and 1 <= len(part.split()) <= 3:
+                            _add(short_lines, all_raw, all_norm, part)
+
+                # Normal short lines
+                if 1 <= len(words) <= 5:
+                    _add(short_lines, all_raw, all_norm, line)
+                elif len(words) <= 8:
+                    _add(short_lines, all_raw, all_norm, line, for_counting=False)
+                else:
+                    # Long lines kept separately for start-of-line name matching
+                    long_norm.append(norm(line))
 
     wb.close()
-    return short_lines, all_raw, all_norm
+    return short_lines, all_raw, all_norm, long_norm
 
 
 def count_tasks_and_flag(speakers):
-    short_lines, all_raw, all_norm = _collect_programme_lines()
+    from difflib import SequenceMatcher
 
-    # ── Task counting (exact last-name key match) ────────────────────────────
+    short_lines, all_raw, all_norm, long_norm = _collect_programme_lines()
+
+    # ── Task counting pass 1: exact last-name key match on short lines ────────
     key_counts = Counter(match_key(s['last']) for s in speakers)
 
     for s in speakers:
@@ -226,11 +274,28 @@ def count_tasks_and_flag(speakers):
         else:
             s['tasks'] = sum(1 for line in short_lines if key_re.search(line))
 
+    # ── Task counting pass 2: long lines that START with "FirstName LastName…" ─
+    # Catches format: "Speaker Name Full Talk Title Here" (name leads the cell).
+    for s in speakers:
+        if s['tasks'] > 0:
+            continue
+        fn  = norm(s['first'])
+        key = match_key(s['last'])
+        if not fn or not key:
+            continue
+        # Line must begin with the first name and contain the last-name key
+        # within the first 5 words (to avoid matching unrelated long text).
+        start_re = re.compile(r'^' + re.escape(fn) + r'\b')
+        key_re   = re.compile(r'\b' + re.escape(key) + r'\b')
+        for nl in long_norm:
+            if start_re.match(nl) and key_re.search(' '.join(nl.split()[:5])):
+                s['tasks'] += 1
+                break
+
     # ── Spelling mismatch detection ──────────────────────────────────────────
-    # Only check speakers with 0 tasks — they appear absent from the programme
-    # entirely, so any first-name hit with a different last name is significant.
-    # Speakers who already have tasks counted are correctly identified; flagging
-    # them produces false positives when two speakers share a common first name.
+    # Only check speakers with 0 tasks. For each, look for their first name
+    # (exact or fuzzy ≥0.85 similarity) in programme lines that lack their
+    # correct last-name key. Fuzzy matching catches "Laslo" ≈ "Laszlo".
     for s in speakers:
         if s['tasks'] > 0:
             continue
@@ -244,11 +309,20 @@ def count_tasks_and_flag(speakers):
         ln_re = re.compile(r'\b' + re.escape(ln) + r'\b') if ln else None
 
         for raw, nl in zip(all_raw, all_norm):
-            if not fn_re.search(nl):
+            # Exact first-name match
+            first_name_hit = fn_re.search(nl)
+            # Fuzzy match: any word in the line is ≥0.85 similar to first name
+            if not first_name_hit:
+                words = re.findall(r'\b\w+\b', nl)
+                first_name_hit = any(
+                    len(w) >= MIN_FIRST_NAME_LEN - 1
+                    and SequenceMatcher(None, fn, w).ratio() >= 0.85
+                    for w in words
+                )
+            if not first_name_hit:
                 continue
             if ln_re and ln_re.search(nl):
                 continue
-            # First name found on a line that lacks the correct last name
             s['spelling_issue'] = raw
             break
 

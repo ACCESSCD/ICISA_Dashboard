@@ -11,7 +11,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -41,7 +41,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -56,7 +56,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -101,7 +101,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -116,7 +116,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -191,7 +191,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -341,7 +341,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -357,7 +357,7 @@
     "bio": "",
     "photo": "",
     "tasks": 0,
-    "spelling_issue": ""
+    "spelling_issue": "Laslo"
   },
   {
     "first": "Eleana",
@@ -461,7 +461,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -476,7 +476,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -491,7 +491,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -506,7 +506,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -521,7 +521,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -566,7 +566,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -611,7 +611,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -746,7 +746,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -795,21 +795,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Vaida",
-    "last": "Sonia",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "svaida@pennstatehealth.psu.edu",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0,
-    "spelling_issue": ""
-  },
-  {
     "first": "Jacob",
     "last": "Refael",
     "type": "",
@@ -852,21 +837,6 @@
     "bio": "",
     "photo": "",
     "tasks": 3,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Meg",
-    "last": "Rosenblatt",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0,
     "spelling_issue": ""
   }
 ]
