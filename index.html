@@ -15,6 +15,7 @@
       --pending:   #e67e22;
       --no-task:   #c0392b;
       --heavy:     #8e44ad;
+      --spelling:  #c0841a;
     }
     body { background:#f2f4f8; font-family:'Segoe UI',Arial,sans-serif; font-size:.9rem; }
 
@@ -102,6 +103,19 @@
     </div>
   </div>
 
+  <!-- ── Spelling stat row ── -->
+  <div class="row g-3 mb-2">
+    <div class="col-12">
+      <div class="stat-card" style="border-top-color:var(--spelling);display:flex;align-items:center;gap:16px;text-align:left;padding:12px 18px;">
+        <div style="font-size:1.6rem;font-weight:700;color:var(--spelling);min-width:2rem" id="kpi-spelling">—</div>
+        <div>
+          <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.5px;">Spelling edits needed in programme</div>
+          <div style="font-size:.78rem;color:#666;margin-top:2px;">Names in programme don't match Faculty list — flag to organisers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Alert panels ── -->
   <div class="row g-3 mb-4">
     <div class="col-md-6">
@@ -120,6 +134,19 @@
           <span id="heavy-count" style="font-weight:400;color:#aaa;"></span>
         </div>
         <div class="name-list" id="heavy-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Spelling issues panel ── -->
+  <div class="row g-3 mb-4">
+    <div class="col-12">
+      <div class="panel">
+        <div class="panel-title" style="color:var(--spelling)">
+          Speakers requiring spelling edits in programme
+          <span id="spelling-count" style="font-weight:400;color:#aaa;"></span>
+        </div>
+        <div class="name-list" id="spelling-list"></div>
       </div>
     </div>
   </div>
@@ -221,7 +248,7 @@ function filter() {
     if (q && ![s.first, s.last, s.track].join(' ').toLowerCase().includes(q)) return false;
     if (status && s.status !== status) return false;
     if (track  && s.track  !== track)  return false;
-    if (tasks === '0' && s.tasks !== 0)  return false;
+    if (tasks === '0' && (s.tasks !== 0 || s.spelling_issue)) return false;
     if (tasks === '4' && s.tasks < 4)   return false;
     return true;
   });
@@ -233,25 +260,33 @@ function refresh() { renderTable(filter()); }
 function renderKPIs(speakers) {
   set('kpi-total',     speakers.length);
   set('kpi-confirmed', speakers.filter(s => s.status === 'Confirmed').length);
-  set('kpi-notask',    speakers.filter(s => s.tasks === 0).length);
+  set('kpi-notask',    speakers.filter(s => s.tasks === 0 && !s.spelling_issue).length);
   set('kpi-heavy',     speakers.filter(s => s.tasks >= 4).length);
+  set('kpi-spelling',  speakers.filter(s => s.spelling_issue).length);
 }
 function set(id, val) { document.getElementById(id).textContent = val; }
 
 // ── Alert panels ───────────────────────────────────────────────────────────
 function renderPanels(speakers) {
-  const noTask = speakers.filter(s => s.tasks === 0)
+  // Exclude spelling-issue speakers from "no sessions" — they do appear in the
+  // programme, just under a different name; they belong in the spelling panel.
+  const noTask  = speakers.filter(s => s.tasks === 0 && !s.spelling_issue)
     .sort((a,b) => a.last.localeCompare(b.last));
-  const heavy  = speakers.filter(s => s.tasks >= 4)
+  const heavy   = speakers.filter(s => s.tasks >= 4)
     .sort((a,b) => b.tasks - a.tasks);
+  const spelling = speakers.filter(s => s.spelling_issue)
+    .sort((a,b) => a.last.localeCompare(b.last));
 
   document.getElementById('notask-count').textContent =
     noTask.length ? `(${noTask.length})` : '';
   document.getElementById('heavy-count').textContent =
     heavy.length ? `(${heavy.length})` : '';
+  document.getElementById('spelling-count').textContent =
+    spelling.length ? `(${spelling.length})` : '';
 
-  renderNameList('notask-list', noTask, 'no-task', false);
-  renderNameList('heavy-list',  heavy,  'heavy',   true);
+  renderNameList('notask-list',   noTask,  'no-task', false);
+  renderNameList('heavy-list',    heavy,   'heavy',   true);
+  renderSpellingList('spelling-list', spelling);
 }
 
 function renderNameList(id, speakers, cls, showCount) {
@@ -271,6 +306,29 @@ function renderNameList(id, speakers, cls, showCount) {
       <span>${esc(s.first)} <strong>${esc(s.last)}</strong>
         <span class="ms-2">${status}</span></span>
       ${badge}
+    </div>`;
+  }).join('');
+}
+
+function renderSpellingList(id, speakers) {
+  const el = document.getElementById(id);
+  if (!speakers.length) {
+    el.innerHTML = '<div class="empty-note">No spelling mismatches detected</div>';
+    return;
+  }
+  el.innerHTML = speakers.map(s => {
+    const status = s.status === 'Confirmed'
+      ? `<span style="color:#27ae60;font-size:.75rem">Confirmed</span>`
+      : `<span style="color:#e67e22;font-size:.75rem">Pending</span>`;
+    return `<div class="name-item" style="background:#fdf8f0;border-left:3px solid var(--spelling);flex-wrap:wrap;gap:4px;">
+      <span>
+        ${esc(s.first)} <strong>${esc(s.last)}</strong>
+        <span class="ms-2">${status}</span>
+        <span class="ms-3" style="color:#888;font-size:.8rem;">
+          Found in programme as: <em style="color:var(--spelling)">${esc(s.spelling_issue)}</em>
+        </span>
+      </span>
+      <span class="task-badge" style="background:var(--spelling)">!</span>
     </div>`;
   }).join('');
 }

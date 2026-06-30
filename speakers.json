@@ -11,7 +11,8 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 1
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Guasch",
@@ -25,7 +26,8 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 0
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Richebe",
@@ -39,21 +41,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
-  },
-  {
-    "first": "Miles",
-    "last": "Berger",
-    "type": "Faculty Invited Speaker",
-    "track": "Delirium/PostEEG",
-    "country": "US",
-    "email": "mberger1@stanford.edu",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Basak",
@@ -67,7 +56,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Maxime",
@@ -81,7 +71,8 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Serban",
@@ -95,7 +86,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": "Serban Bubanek"
   },
   {
     "first": "Eva",
@@ -109,7 +101,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Nadav",
@@ -123,7 +116,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Sara",
@@ -131,13 +125,14 @@
     "type": "Invited Speaker",
     "track": "Education",
     "country": "US",
-    "email": "saragf@stanford.edu ; adevine@stanford.edu",
+    "email": "saragf@stanford.edu ; adevine@stanford.edu; goldhaber.fiebert@gmail.com",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Anne-Marie",
@@ -151,7 +146,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3
+    "tasks": 3,
+    "spelling_issue": ""
   },
   {
     "first": "Carolina",
@@ -165,7 +161,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Maurizio",
@@ -179,7 +176,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Daniel",
@@ -193,7 +191,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Mervyn",
@@ -207,7 +206,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Julia",
@@ -221,7 +221,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Ilona",
@@ -235,7 +236,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Daniela",
@@ -249,7 +251,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3
+    "tasks": 4,
+    "spelling_issue": ""
   },
   {
     "first": "Arash",
@@ -263,7 +266,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Jens",
@@ -271,13 +275,14 @@
     "type": "Faculty Invited Speaker",
     "track": "Transfusion",
     "country": "Austria",
-    "email": "jens.meier@gmail.com",
+    "email": "jens.meier@gmail.com;\nTina.Rachle@kepleruniklinikum.at",
     "affil": "",
     "inv": "Yes",
-    "status": "Pending",
+    "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Robina",
@@ -291,7 +296,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Mahmood",
@@ -305,7 +311,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Steffen",
@@ -319,7 +326,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 4
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Andrea",
@@ -333,7 +341,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Laszlo",
@@ -347,7 +356,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Eleana",
@@ -361,7 +371,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Ram",
@@ -375,7 +386,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Daniela",
@@ -389,7 +401,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Turan",
@@ -403,11 +416,12 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Marcelo",
-    "last": "Gamma de Abreu",
+    "last": "Gama de Abreu",
     "type": "Faculty Invited Speaker",
     "track": "Big Data and Outcomes Research\nVentilation",
     "country": "US",
@@ -417,7 +431,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 0,
+    "spelling_issue": "Marcelo de Gamma Abreo"
   },
   {
     "first": "Dan",
@@ -431,7 +446,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Brian",
@@ -445,7 +461,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "David",
@@ -459,7 +476,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Joel",
@@ -473,7 +491,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Bernhard",
@@ -487,7 +506,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Gabriella",
@@ -501,7 +521,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Leo",
@@ -515,7 +536,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Misha",
@@ -529,7 +551,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Ron",
@@ -543,7 +566,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Michael",
@@ -557,7 +581,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Michael",
@@ -571,7 +596,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Lorenzo",
@@ -585,7 +611,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Carolina",
@@ -599,7 +626,23 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": "Carolina Horlock"
+  },
+  {
+    "first": "Chirojit",
+    "last": "Mukherjee",
+    "type": "Faculty Invited Speaker",
+    "track": "Cardiac anesthesia",
+    "country": "Germany",
+    "email": "chirojit.mukherjee@helios-gesundheit.de",
+    "affil": "",
+    "inv": "Yes",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": "Chirojit"
   },
   {
     "first": "Vladimir",
@@ -613,7 +656,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Michaela",
@@ -627,7 +671,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2
+    "tasks": 2,
+    "spelling_issue": ""
   },
   {
     "first": "Ron",
@@ -635,13 +680,14 @@
     "type": "Faculty Invited Speaker",
     "track": "",
     "country": "",
-    "email": "",
+    "email": "Ron.George@uhn.ca",
     "affil": "",
     "inv": "Yes",
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Itay",
@@ -649,16 +695,47 @@
     "type": "Faculty Invited Speaker",
     "track": "",
     "country": "",
-    "email": "",
+    "email": "ibentov@gmail.com",
     "affil": "",
     "inv": "Yes",
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
-    "first": "Jake",
+    "first": "Dr Balavenkat",
+    "last": "Subramanian",
+    "type": "Faculty Invited Speaker",
+    "track": "",
+    "country": "",
+    "email": "drbalavenkat@gmail.com",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Dr. Ovidiu",
+    "last": "Palea",
+    "type": "Faculty Invited Speaker",
+    "track": "pain",
+    "country": "",
+    "email": "ovidiu.palea@nord.ro",
+    "affil": "",
+    "inv": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Yaakov",
     "last": "Beilin",
     "type": "",
     "track": "",
@@ -666,94 +743,11 @@
     "email": "yaakov.beilin@mountsinai.org",
     "affil": "",
     "inv": "",
-    "status": "Pending",
+    "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Joshua",
-    "last": "Mincer",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "jmincer@gmail.com",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 1
-  },
-  {
-    "first": "Vaida",
-    "last": "Sonia",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "svaida@pennstatehealth.psu.edu",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Jacob",
-    "last": "Refael",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "Jacob.Raphael@jefferson.edu",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "David",
-    "last": "Polaner",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "Polaner@uw.edu",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
-  },
-  {
-    "first": "Ed",
-    "last": "Cohen",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 3
-  },
-  {
-    "first": "Yaster",
-    "last": "Myron",
-    "type": "",
-    "track": "ISAAC 18",
-    "country": "",
-    "email": "",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
   },
   {
     "first": "Luis",
@@ -767,20 +761,112 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1
+    "tasks": 1,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Joshua",
+    "last": "Mincer",
+    "type": "",
+    "track": "",
+    "country": "US",
+    "email": "jmincer@gmail.com",
+    "affil": "",
+    "inv": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Rudin",
     "last": "Domi",
     "type": "",
     "track": "TBC",
-    "country": "",
+    "country": "Albania",
     "email": "rdomi73@yahoo.it",
     "affil": "",
     "inv": "",
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Vaida",
+    "last": "Sonia",
+    "type": "",
+    "track": "",
+    "country": "US",
+    "email": "svaida@pennstatehealth.psu.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Jacob",
+    "last": "Refael",
+    "type": "",
+    "track": "PROF.",
+    "country": "US",
+    "email": "Jacob.Raphael@jefferson.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "David",
+    "last": "Polaner",
+    "type": "",
+    "track": "",
+    "country": "US",
+    "email": "Polaner@uw.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Ed",
+    "last": "Cohen",
+    "type": "",
+    "track": "",
+    "country": "US",
+    "email": "edmond.cohen@mountsinai.org",
+    "affil": "",
+    "inv": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 3,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Meg",
+    "last": "Rosenblatt",
+    "type": "",
+    "track": "",
+    "country": "US",
+    "email": "",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
   }
 ]

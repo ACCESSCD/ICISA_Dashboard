@@ -9,6 +9,7 @@ import json
 import re
 import unicodedata
 import warnings
+from collections import Counter
 from pathlib import Path
 
 import openpyxl
@@ -28,6 +29,10 @@ OUTPUT_PATH  = Path(__file__).parent / 'speakers.json'
 
 EXCLUDE_TYPES = {'DO NOT INVITE'}
 
+# Minimum first-name length to use for spelling mismatch detection.
+# Short names (e.g. "David", "Nadav") are too common and cause false positives.
+MIN_FIRST_NAME_LEN = 6
+
 
 # ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -45,8 +50,8 @@ def norm(s):
 def match_key(last_name):
     """
     Return the best single token to search for a speaker by last name.
-    Handles hyphenated names (Shick-Nahtomi -> nahtomi) and
-    multi-word last names (Ceyda Meco -> ceyda).
+    Handles hyphenated names (Haylock-Loor -> haylock) and
+    multi-word last names (Gama de Abreu -> abreu).
     """
     n = norm(last_name)
     parts = [p for p in re.split(r'[-\s]+', n) if len(p) > 3]
@@ -120,37 +125,50 @@ def load_speakers():
         seen.add(key)
 
         speakers.append({
-            'first':   first,
-            'last':    last,
-            'type':    stype,
-            'track':   clean(row[4]),
-            'country': clean(row[7]),
-            'email':   clean(row[9]),
-            'affil':   clean(row[13]),
-            'inv':     'Yes' if (len(row) > 14 and clean(row[14]).upper() == 'V') else '',
-            'status':  status,
-            'bio':     'Yes' if (len(row) > 21 and row[21]) else '',
-            'photo':   'Yes' if (len(row) > 22 and row[22]) else '',
-            'tasks':   0,                 # filled below
+            'first':          first,
+            'last':           last,
+            'type':           stype,
+            'track':          clean(row[4]),
+            'country':        clean(row[7]),
+            'email':          clean(row[9]),
+            'affil':          clean(row[13]),
+            'inv':            'Yes' if (len(row) > 14 and clean(row[14]).upper() == 'V') else '',
+            'status':         status,
+            'bio':            'Yes' if (len(row) > 21 and row[21]) else '',
+            'photo':          'Yes' if (len(row) > 22 and row[22]) else '',
+            'tasks':          0,          # filled below
+            'spelling_issue': '',         # filled below
         })
 
     wb.close()
     return speakers
 
 
-# ── count tasks from program ─────────────────────────────────────────────────
+# ── count tasks + flag spelling issues from programme ────────────────────────
 
-def count_tasks(speakers):
+_MOD_PREFIX = re.compile(r'^moderator\s*:?\s*', re.I)
+_MOD_ANY    = re.compile(r'moderator', re.I)
+_TIME_RE    = re.compile(r'^\d{1,2}:\d{2}')
+
+
+def _collect_programme_lines():
+    """
+    Return two parallel lists (raw, normalised) of candidate name lines
+    from the programme, and a separate list of short_lines used for exact
+    task counting.
+
+    Moderator lines are included: the name is extracted from
+    "Moderator: First Last" and counted as a session assignment.
+    """
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
-        wb2 = openpyxl.load_workbook(PGM_PATH, data_only=True)
+        wb = openpyxl.load_workbook(PGM_PATH, data_only=True)
+    ws = wb['Sheet1']
 
-    ws = wb2['Sheet1']
-    time_re = re.compile(r'^\d{1,2}:\d{2}')
-    mod_re  = re.compile(r'moderator', re.I)
+    short_lines = []   # 1-5 word lines used for task counting
+    all_raw     = []   # broader set used for spelling detection
+    all_norm    = []
 
-    # Collect short lines (1-5 words) — these are where speaker names appear
-    short_lines = []
     for row in ws.iter_rows():
         if ws.row_dimensions[row[0].row].hidden:
             continue
@@ -162,19 +180,34 @@ def count_tasks(speakers):
                 continue
             for line in text.split('\n'):
                 line = line.strip()
-                if not line:
+                if not line or _TIME_RE.match(line):
                     continue
-                if time_re.match(line):
-                    continue
-                if mod_re.search(line):
-                    continue
-                if 1 <= len(line.split()) <= 5:
-                    short_lines.append(norm(line))
+                if _MOD_ANY.search(line):
+                    # Extract the speaker name from "Moderator: First Last"
+                    name_part = _MOD_PREFIX.sub('', line).strip()
+                    if name_part and 1 <= len(name_part.split()) <= 4:
+                        nl = norm(name_part)
+                        short_lines.append(nl)
+                        all_raw.append(name_part)
+                        all_norm.append(nl)
+                elif 1 <= len(line.split()) <= 5:
+                    nl = norm(line)
+                    short_lines.append(nl)
+                    all_raw.append(line)
+                    all_norm.append(nl)
+                elif len(line.split()) <= 8:
+                    # Wider net for spelling detection only
+                    all_raw.append(line)
+                    all_norm.append(norm(line))
 
-    wb2.close()
+    wb.close()
+    return short_lines, all_raw, all_norm
 
-    # Detect shared last-name keys so we can require first-name prefix for those
-    from collections import Counter
+
+def count_tasks_and_flag(speakers):
+    short_lines, all_raw, all_norm = _collect_programme_lines()
+
+    # ── Task counting (exact last-name key match) ────────────────────────────
     key_counts = Counter(match_key(s['last']) for s in speakers)
 
     for s in speakers:
@@ -184,8 +217,7 @@ def count_tasks(speakers):
         key_re = re.compile(r'\b' + re.escape(key) + r'\b')
 
         if key_counts[key] > 1:
-            # Multiple speakers share this last-name key → also require first-name prefix
-            fp = norm(s['first'])[:4]
+            fp    = norm(s['first'])[:4]
             fp_re = re.compile(r'\b' + re.escape(fp))
             s['tasks'] = sum(
                 1 for line in short_lines
@@ -194,28 +226,61 @@ def count_tasks(speakers):
         else:
             s['tasks'] = sum(1 for line in short_lines if key_re.search(line))
 
+    # ── Spelling mismatch detection ──────────────────────────────────────────
+    # Only check speakers with 0 tasks — they appear absent from the programme
+    # entirely, so any first-name hit with a different last name is significant.
+    # Speakers who already have tasks counted are correctly identified; flagging
+    # them produces false positives when two speakers share a common first name.
+    for s in speakers:
+        if s['tasks'] > 0:
+            continue
+        fn = norm(s['first'])
+        ln = match_key(s['last'])
+
+        if len(fn) < MIN_FIRST_NAME_LEN:
+            continue
+
+        fn_re = re.compile(r'\b' + re.escape(fn) + r'\b')
+        ln_re = re.compile(r'\b' + re.escape(ln) + r'\b') if ln else None
+
+        for raw, nl in zip(all_raw, all_norm):
+            if not fn_re.search(nl):
+                continue
+            if ln_re and ln_re.search(nl):
+                continue
+            # First name found on a line that lacks the correct last name
+            s['spelling_issue'] = raw
+            break
+
 
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
     speakers = load_speakers()
-    count_tasks(speakers)
+    count_tasks_and_flag(speakers)
 
-    total     = len(speakers)
+    total    = len(speakers)
     confirmed = sum(1 for s in speakers if s['status'] == 'Confirmed')
     pending   = sum(1 for s in speakers if s['status'] == 'Pending')
-    no_tasks  = sum(1 for s in speakers if s['tasks'] == 0)
+    no_tasks  = sum(1 for s in speakers if s['tasks'] == 0 and not s['spelling_issue'])
+    spelling  = sum(1 for s in speakers if s['spelling_issue'])
     heavy     = sum(1 for s in speakers if s['tasks'] >= 4)
 
     print(f'Speakers (excl. Declined): {total}')
-    print(f'  Confirmed : {confirmed}')
-    print(f'  Pending   : {pending}')
-    print(f'  No tasks  : {no_tasks}')
-    print(f'  4+ tasks  : {heavy}')
+    print(f'  Confirmed      : {confirmed}')
+    print(f'  Pending        : {pending}')
+    print(f'  No tasks       : {no_tasks}')
+    print(f'  Spelling issues: {spelling}')
+    print(f'  4+ tasks       : {heavy}')
+    print()
+    print('Spelling issues:')
+    for s in sorted((s for s in speakers if s['spelling_issue']), key=lambda x: x['last']):
+        print(f"  {s['first']} {s['last']}  ->  \"{s['spelling_issue']}\"")
     print()
     print('Task counts per speaker:')
     for s in sorted(speakers, key=lambda x: -x['tasks']):
-        print(f"  {s['tasks']:2d}  {s['first']} {s['last']}  [{s['status']}]")
+        flag = ' [SPELLING]' if s['spelling_issue'] else ''
+        print(f"  {s['tasks']:2d}  {s['first']} {s['last']}  [{s['status']}]{flag}")
 
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(speakers, f, ensure_ascii=False, indent=2)
