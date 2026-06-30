@@ -220,15 +220,29 @@ def _collect_programme_lines():
 
                 # "Title - Speaker Name" or "Speaker - Title": extract each
                 # segment separated by a dash; short segments are likely names.
+                # Use continue so the line is not also processed by the comma
+                # and short-line paths (which would double-count names).
                 if _DASH_RE.search(line):
                     segments = _DASH_RE.split(line)
                     for seg in segments:
                         seg = seg.strip()
-                        seg_words = seg.split()
-                        if 1 <= len(seg_words) <= 4:
-                            _add(short_lines, all_raw, all_norm, seg)
-                        elif len(seg_words) <= 8:
-                            _add(short_lines, all_raw, all_norm, seg, for_counting=False)
+                        if ',' in seg:
+                            # comma-list within a segment (e.g. "Name1, Name2")
+                            for part in seg.split(','):
+                                part = part.strip()
+                                if part and 1 <= len(part.split()) <= 4:
+                                    _add(short_lines, all_raw, all_norm, part)
+                                elif part and len(part.split()) <= 8:
+                                    _add(short_lines, all_raw, all_norm, part, for_counting=False)
+                        else:
+                            seg_words = seg.split()
+                            if 1 <= len(seg_words) <= 4:
+                                _add(short_lines, all_raw, all_norm, seg)
+                            elif len(seg_words) <= 8:
+                                _add(short_lines, all_raw, all_norm, seg, for_counting=False)
+                            else:
+                                long_norm.append(norm(seg))
+                    continue  # skip comma-split and short-line paths for this line
 
                 # Comma-separated panel lists: split and add each part
                 if ',' in line and len(words) <= 15:
