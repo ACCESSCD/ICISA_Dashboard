@@ -162,10 +162,15 @@ _CFW_PREFIX = re.compile(r'^CFW\s*:\s*', re.I)
 _DASH_RE    = re.compile(r'\s[-–]\s')
 
 
-def _add(short_lines, all_raw, all_norm, text, for_counting=True):
+def _title_key(title):
+    """First 5 normalised words of a title; used for cross-cell deduplication."""
+    return ' '.join(norm(title).split()[:5])
+
+
+def _add(short_lines, all_raw, all_norm, text, title_key='', for_counting=True):
     nl = norm(text)
     if for_counting:
-        short_lines.append(nl)
+        short_lines.append((nl, title_key))
     all_raw.append(text)
     all_norm.append(nl)
 
@@ -173,13 +178,11 @@ def _add(short_lines, all_raw, all_norm, text, for_counting=True):
 def _collect_programme_lines():
     """
     Return:
-      short_lines — normalised 1-5 word chunks used for exact task counting.
-                    Includes moderator names and names extracted from
-                    'Title - Speaker' and 'CFW: Speaker - Title' formats.
-      all_raw / all_norm — broader parallel lists used for spelling detection,
-                    including medium-length lines and comma-list parts.
-      long_norm   — normalised lines of 6+ words, used for second-pass matching
-                    of 'Speaker Name Talk Title...' format.
+      short_lines — list of (norm_text, title_key) tuples for task counting.
+                    title_key is the first 5 words of the associated talk title,
+                    used to deduplicate the same talk appearing in multiple cells.
+      all_raw / all_norm — broader parallel lists used for spelling detection.
+      long_norm   — normalised lines of 6+ words, for second-pass name matching.
     """
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
@@ -199,6 +202,10 @@ def _collect_programme_lines():
             text = str(cell.value).strip()
             if text in ('None', ''):
                 continue
+
+            current_title = ''  # most recent long line (likely a talk title)
+            cell_header   = ''  # first visible line of cell (session/category)
+
             for line in text.split('\n'):
                 line = line.strip()
                 if not line or _TIME_RE.match(line):
@@ -209,53 +216,68 @@ def _collect_programme_lines():
                 if not line:
                     continue
 
+                if not cell_header:
+                    cell_header = line
+
                 # Moderator lines: extract name after the prefix
                 if _MOD_ANY.search(line):
                     name_part = _MOD_PREFIX.sub('', line).strip()
                     if name_part and 1 <= len(name_part.split()) <= 4:
-                        _add(short_lines, all_raw, all_norm, name_part)
+                        tk = _title_key(current_title or cell_header)
+                        _add(short_lines, all_raw, all_norm, name_part, tk)
                     continue
 
                 words = line.split()
 
                 # "Title - Speaker Name" or "Speaker - Title": extract each
-                # segment separated by a dash; short segments are likely names.
-                # Use continue so the line is not also processed by the comma
-                # and short-line paths (which would double-count names).
+                # segment. The first segment is used as the talk title key.
+                # continue prevents double-counting via comma/short-line paths.
                 if _DASH_RE.search(line):
                     segments = _DASH_RE.split(line)
+                    seg0   = segments[0].strip()
+                    seg_tk = (_title_key(seg0)
+                              if len(seg0.split()) >= 2
+                              else _title_key(current_title or cell_header))
                     for seg in segments:
                         seg = seg.strip()
                         if ',' in seg:
-                            # comma-list within a segment (e.g. "Name1, Name2")
                             for part in seg.split(','):
                                 part = part.strip()
                                 if part and 1 <= len(part.split()) <= 4:
-                                    _add(short_lines, all_raw, all_norm, part)
+                                    _add(short_lines, all_raw, all_norm, part, seg_tk)
                                 elif part and len(part.split()) <= 8:
-                                    _add(short_lines, all_raw, all_norm, part, for_counting=False)
+                                    _add(short_lines, all_raw, all_norm, part, seg_tk,
+                                         for_counting=False)
                         else:
                             seg_words = seg.split()
                             if 1 <= len(seg_words) <= 4:
-                                _add(short_lines, all_raw, all_norm, seg)
+                                _add(short_lines, all_raw, all_norm, seg, seg_tk)
                             elif len(seg_words) <= 8:
-                                _add(short_lines, all_raw, all_norm, seg, for_counting=False)
+                                _add(short_lines, all_raw, all_norm, seg, seg_tk,
+                                     for_counting=False)
                             else:
                                 long_norm.append(norm(seg))
-                    continue  # skip comma-split and short-line paths for this line
+                    continue
+
+                # Lines longer than 5 words are likely talk titles — remember
+                # them so they can be used as title_key for the name that follows.
+                if len(words) > 5:
+                    current_title = line
+
+                tk = _title_key(current_title or cell_header)
 
                 # Comma-separated panel lists: split and add each part
                 if ',' in line and len(words) <= 15:
                     for part in line.split(','):
                         part = part.strip()
                         if part and 1 <= len(part.split()) <= 3:
-                            _add(short_lines, all_raw, all_norm, part)
+                            _add(short_lines, all_raw, all_norm, part, tk)
 
                 # Normal short lines
                 if 1 <= len(words) <= 5:
-                    _add(short_lines, all_raw, all_norm, line)
+                    _add(short_lines, all_raw, all_norm, line, tk)
                 elif len(words) <= 8:
-                    _add(short_lines, all_raw, all_norm, line, for_counting=False)
+                    _add(short_lines, all_raw, all_norm, line, tk, for_counting=False)
                 else:
                     # Long lines kept separately for start-of-line name matching
                     long_norm.append(norm(line))
@@ -269,24 +291,28 @@ def count_tasks_and_flag(speakers):
 
     short_lines, all_raw, all_norm, long_norm = _collect_programme_lines()
 
-    # ── Task counting pass 1: exact last-name key match on short lines ────────
-    key_counts = Counter(match_key(s['last']) for s in speakers)
-
+    # ── Task counting pass 1: first-name + last-name + title deduplication ─────
+    # Always require both first and last name so distinct people with the same
+    # last name are never conflated. Deduplicate by title_key so the same talk
+    # listed in multiple programme cells counts as one task.
     for s in speakers:
         key = match_key(s['last'])
         if not key:
             continue
         key_re = re.compile(r'\b' + re.escape(key) + r'\b')
-
-        if key_counts[key] > 1:
-            fp    = norm(s['first'])[:4]
-            fp_re = re.compile(r'\b' + re.escape(fp))
-            s['tasks'] = sum(
-                1 for line in short_lines
-                if key_re.search(line) and fp_re.search(line)
-            )
+        fn = norm(s['first'])
+        # Short first names need a word boundary on both sides (e.g. "Ed" must
+        # not match "Edmond"). Longer names use a prefix match with no trailing
+        # boundary so "Dan" matches "Danny" / "Daniel" interchangeably.
+        if len(fn) <= 3:
+            fp_re = re.compile(r'\b' + re.escape(fn) + r'\b')
         else:
-            s['tasks'] = sum(1 for line in short_lines if key_re.search(line))
+            fp_re = re.compile(r'\b' + re.escape(fn[:3]))
+        seen_titles: set = set()
+        for nl, title_key in short_lines:
+            if key_re.search(nl) and fp_re.search(nl):
+                seen_titles.add(title_key)
+        s['tasks'] = len(seen_titles)
 
     # ── Task counting pass 2: long lines that START with "FirstName LastName…" ─
     # Catches format: "Speaker Name Full Talk Title Here" (name leads the cell).

@@ -341,7 +341,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -731,7 +731,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -746,7 +746,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -836,7 +836,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 4,
+    "tasks": 1,
     "spelling_issue": ""
   }
 ]
