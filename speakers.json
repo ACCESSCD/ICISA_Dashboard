@@ -56,7 +56,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -87,7 +87,7 @@
     "bio": "",
     "photo": "",
     "tasks": 0,
-    "spelling_issue": "Serban Bubanek"
+    "spelling_issue": ""
   },
   {
     "first": "Eva",
@@ -101,7 +101,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -161,7 +161,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -221,7 +221,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -251,7 +251,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 4,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -266,7 +266,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -296,7 +296,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -311,7 +311,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -356,8 +356,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": "Laslo"
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Eleana",
@@ -416,7 +416,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -431,8 +431,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": "Marcelo de Gamma Abreo"
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Dan",
@@ -446,7 +446,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -626,8 +626,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": "Carolina Horlock"
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Chirojit",
@@ -836,7 +836,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 4,
     "spelling_issue": ""
   }
 ]
