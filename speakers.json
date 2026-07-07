@@ -41,7 +41,22 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 2,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Miles",
+    "last": "Berger",
+    "type": "Faculty Invited Speaker",
+    "track": "Delirium/PostEEG",
+    "country": "US",
+    "email": "mberger1@stanford.edu",
+    "affil": "",
+    "inv": "Yes",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -71,7 +86,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -206,7 +221,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -326,7 +341,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -356,7 +371,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -416,7 +431,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -686,7 +701,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -729,6 +744,81 @@
     "affil": "",
     "inv": "",
     "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Prof. Iurii",
+    "last": "Kuchyn",
+    "type": "Faculty Invited Speaker",
+    "track": "",
+    "country": "",
+    "email": "kuchyn2@gmail.com",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Prof. Kateryna",
+    "last": "Bielka",
+    "type": "Faculty Invited Speaker",
+    "track": "",
+    "country": "",
+    "email": "ekateryna.belka@gmail.com",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Jose",
+    "last": "Salinas",
+    "type": "Faculty Invited Speaker",
+    "track": "Dr.",
+    "country": "",
+    "email": "jose.salinas4.civ@health.mil",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 1,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Sofia",
+    "last": "Hernandez Torres",
+    "type": "Faculty Invited Speaker",
+    "track": "",
+    "country": "",
+    "email": "sofia.i.hernandeztorres.ctr@health.mil",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Eric",
+    "last": "Snider",
+    "type": "Faculty Invited Speaker",
+    "track": "Dr.",
+    "country": "",
+    "email": "eric.j.snider3.civ@health.mil",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
     "bio": "",
     "photo": "",
     "tasks": 0,
