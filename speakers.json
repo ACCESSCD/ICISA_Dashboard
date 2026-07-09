@@ -71,7 +71,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -728,7 +728,7 @@
     "email": "kuchyn2@gmail.com",
     "affil": "",
     "inv": "",
-    "status": "Pending",
+    "status": "Confirmed",
     "bio": "",
     "photo": "",
     "tasks": 1,
@@ -743,7 +743,7 @@
     "email": "ekateryna.belka@gmail.com",
     "affil": "",
     "inv": "",
-    "status": "Pending",
+    "status": "Confirmed",
     "bio": "",
     "photo": "",
     "tasks": 1,
@@ -806,7 +806,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -851,7 +851,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -878,7 +878,7 @@
     "email": "Polaner@uw.edu",
     "affil": "",
     "inv": "",
-    "status": "Pending",
+    "status": "Confirmed",
     "bio": "",
     "photo": "",
     "tasks": 0,
