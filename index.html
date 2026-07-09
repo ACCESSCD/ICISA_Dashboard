@@ -238,14 +238,14 @@
 const SC = { Confirmed: '#27ae60', Pending: '#e67e22' };
 let ALL = [], sortCol = 'tasks', sortDir = -1;
 
-fetch('sponsorship.json')
+fetch('sponsorship.json?t=' + Date.now())
   .then(r => r.json())
   .then(data => {
     renderSponsorList(data.committed, data.total);
     renderTodoList(data.todo);
   });
 
-fetch('speakers.json')
+fetch('speakers.json?t=' + Date.now())
   .then(r => r.json())
   .then(data => {
     ALL = data;
