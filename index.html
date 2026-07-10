@@ -161,25 +161,25 @@
     <div class="col-6 col-md-3">
       <div class="stat-card" style="border-top-color:var(--todo)">
         <div class="val" id="kpi-required" style="color:var(--todo);font-size:1.6rem">—</div>
-        <div class="lbl">Required (NIS)</div>
+        <div class="lbl">Required (Euro)</div>
       </div>
     </div>
     <div class="col-6 col-md-3">
       <div class="stat-card" style="border-top-color:var(--navy)">
         <div class="val" id="kpi-expected" style="color:var(--navy);font-size:1.6rem">—</div>
-        <div class="lbl">Expected Total (NIS)</div>
+        <div class="lbl">Expected Total (Euro)</div>
       </div>
     </div>
     <div class="col-6 col-md-3">
       <div class="stat-card" style="border-top-color:var(--sponsor)">
         <div class="val" id="kpi-committed" style="color:var(--sponsor);font-size:1.6rem">—</div>
-        <div class="lbl">Committed (NIS)</div>
+        <div class="lbl">Committed (Euro)</div>
       </div>
     </div>
     <div class="col-6 col-md-3">
       <div class="stat-card" style="border-top-color:var(--no-task)">
         <div class="val" id="kpi-gap" style="color:var(--no-task);font-size:1.6rem">—</div>
-        <div class="lbl">Remaining Gap (NIS)</div>
+        <div class="lbl">Remaining Gap (Euro)</div>
       </div>
     </div>
   </div>
@@ -273,7 +273,7 @@ fetch('sponsorship.json?t=' + Date.now())
   .then(r => r.json())
   .then(data => {
     renderSponsorSummary(data);
-    renderSponsorList(data.committed, data.committed_delta_nis);
+    renderSponsorList(data.committed, data.committed_delta_eur);
     renderTodoList(data.todo);
   });
 
@@ -441,17 +441,18 @@ function renderTable(speakers) {
 
 // ── Sponsorship panels ─────────────────────────────────────────────────────
 function nis(n)  { return `₪${Math.round(n).toLocaleString()}`; }
+function eur(n)  { return `€${Math.round(n).toLocaleString()}`; }
 
 function renderSponsorSummary(data) {
-  document.getElementById('kpi-required').textContent  = nis(data.required_nis);
-  document.getElementById('kpi-expected').textContent  = nis(data.expected_total_nis);
-  document.getElementById('kpi-committed').textContent = nis(data.committed_delta_nis);
-  document.getElementById('kpi-gap').textContent       = nis(data.gap_nis);
+  document.getElementById('kpi-required').textContent  = eur(data.required_eur);
+  document.getElementById('kpi-expected').textContent  = eur(data.expected_total_eur);
+  document.getElementById('kpi-committed').textContent = eur(data.committed_delta_eur);
+  document.getElementById('kpi-gap').textContent       = eur(data.gap_eur);
 }
 
-function renderSponsorList(committed, totalNis) {
+function renderSponsorList(committed, totalEur) {
   document.getElementById('sponsor-total').textContent =
-    committed.length ? `— Combined ${nis(totalNis)}` : '';
+    committed.length ? `— Combined ${eur(totalEur)}` : '';
 
   const el = document.getElementById('sponsor-list');
   if (!committed.length) {
@@ -468,7 +469,7 @@ function renderSponsorList(committed, totalNis) {
     </div>`;
   }).join('') +
   `<div style="text-align:right;padding:8px 10px 2px;font-weight:700;color:var(--sponsor);border-top:1px solid #d0eadb;margin-top:6px;">
-    Combined total: ${nis(totalNis)}
+    Combined total: ${eur(totalEur)}
   </div>`;
 }
 
