@@ -33,6 +33,8 @@ EXCLUDE_TYPES = {'DO NOT INVITE'}
 MANUAL_EXCLUDE = {
     ('meg',   'rosenblatt'),
     ('vaida', 'sonia'),
+    ('ron',   'george'),
+    ('steffen', 'rex'),
 }
 
 # Minimum first-name length for spelling-mismatch detection.
@@ -114,6 +116,11 @@ def load_speakers():
         last  = clean(row[6])
         if not first or first == 'None':
             continue
+            
+        # Strip common titles
+        first = re.sub(r'^(Prof\.|Prof\s|Dr\.|Dr\s)', '', first, flags=re.IGNORECASE).strip()
+        last = re.sub(r'^(Prof\.|Prof\s|Dr\.|Dr\s)', '', last, flags=re.IGNORECASE).strip()
+
         if 'moderator' in f'{first} {last}'.lower():
             continue
 
@@ -240,8 +247,9 @@ def _collect_programme_lines():
                               else _title_key(current_title or cell_header))
                     for seg in segments:
                         seg = seg.strip()
-                        if ',' in seg:
-                            for part in seg.split(','):
+                        seg_splits = re.split(r',|\s&\s|\sand\s', seg, flags=re.IGNORECASE)
+                        if len(seg_splits) > 1:
+                            for part in seg_splits:
                                 part = part.strip()
                                 if part and 1 <= len(part.split()) <= 4:
                                     _add(short_lines, all_raw, all_norm, part, seg_tk)
@@ -266,9 +274,10 @@ def _collect_programme_lines():
 
                 tk = _title_key(current_title or cell_header)
 
-                # Comma-separated panel lists: split and add each part
-                if ',' in line and len(words) <= 15:
-                    for part in line.split(','):
+                # Comma/ampersand-separated panel lists: split and add each part
+                line_splits = re.split(r',|\s&\s|\sand\s', line, flags=re.IGNORECASE)
+                if len(line_splits) > 1 and len(words) <= 15:
+                    for part in line_splits:
                         part = part.strip()
                         if part and 1 <= len(part.split()) <= 3:
                             _add(short_lines, all_raw, all_norm, part, tk)

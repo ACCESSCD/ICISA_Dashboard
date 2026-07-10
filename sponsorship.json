@@ -2,11 +2,21 @@
   "committed": [
     {
       "name": "Lapidot",
-      "amount": 4500.0
+      "euro": 4500.0,
+      "nis": null,
+      "combined_nis": 17775.0
+    },
+    {
+      "name": "Safedoctor",
+      "euro": null,
+      "nis": 15000.0,
+      "combined_nis": 15000.0
     },
     {
       "name": "Jehova Witness",
-      "amount": 2500.0
+      "euro": 2500.0,
+      "nis": null,
+      "combined_nis": 9875.0
     }
   ],
   "todo": [
@@ -17,10 +27,6 @@
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
       "note": "9-7- sent message"
-    },
-    {
-      "name": "BD",
-      "note": "looking at pdf, want workshop Hugo"
     },
     {
       "name": "Edwards (Tzamal)",
@@ -55,17 +61,53 @@
       "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
     },
     {
+      "name": "Trupharm",
+      "note": "ask for 20000 Euro. Got amazing answwrs from all the company, and im asking small amount"
+    },
+    {
+      "name": "ACT",
+      "note": "wants to be bigger"
+    },
+    {
+      "name": "BD",
+      "note": "looking at pdf, want workshop Hugo"
+    },
+    {
+      "name": "Breslauer",
+      "note": "sms sent 9-7 about airway"
+    },
+    {
       "name": "Dover",
       "note": "9-7- sent message"
     },
     {
-      "name": "Ilex",
-      "note": "9-7- sent message"
+      "name": "Eldan",
+      "note": "want to be in"
     },
     {
-      "name": "hamercaz lenihul prisha",
-      "note": "number is 0737500853"
+      "name": "Ilex",
+      "note": "meeting 13-7-26"
+    },
+    {
+      "name": "Medlife",
+      "note": "9-7 move forward"
+    },
+    {
+      "name": "medanes",
+      "note": "no"
+    },
+    {
+      "name": "Shanital",
+      "note": "9-7 move forward. Have echo probe"
+    },
+    {
+      "name": "Remed",
+      "note": "enjoyed last conference wanto be in"
     }
   ],
-  "total": 7000.0
+  "required_nis": 866338,
+  "expected_total_nis": 224500.0,
+  "committed_delta_nis": 42650.0,
+  "gap_nis": 823688.0,
+  "eur_to_nis": 3.95
 }

@@ -1,78 +1,115 @@
 #!/usr/bin/env python3
 """
-Reads CFW follow up.xlsx and writes sponsorship.json for the dashboard.
+Reads CFW follow up.xlsx (sheet "$updates") and writes sponsorship.json
+for the dashboard.
 
-Column layout (active sheet):
-  B  — company name (Big5 tier)
-  E  — company name (Middle4 tier)
-  F  — company name (Small20 tier)
-  G  — 2026 comment / follow-up note
-  H  — 2026 committed amount (Euro)
+Column layout ("$updates" sheet):
+  B  — company name
+  F  — 2026 comment / follow-up note
+  G  — 2026 committed amount (Euro)
+  H  — 2026 committed amount (NIS)
+  I70 — "Minimum Expected running total" (=SUM(I5:I69)), tracked in NIS
 
-Rules:
-  committed  → H is a positive number
-  todo       → G has a comment AND H is blank (not 0, not a number)
-  skip       → H = 0 (declined), or both G and H empty
+Rules (per column, G and H are independent):
+  committed  → G and/or H is a positive number
+  declined   → G = 0 or H = 0 (excluded from committed and todo)
+  todo       → F has a comment AND neither G nor H is a positive number, and
+               neither is explicitly 0 (declined)
+  skip       → nothing else applies
+
+REQUIRED_NIS is the sponsorship target for the conference, set by the
+organisers — it isn't tracked anywhere in the spreadsheet, so it's a
+constant here. Update it by hand if the target changes.
 
 Usage:  python generate_sponsorship.py
 """
 import json
+import sys
 import warnings
 from pathlib import Path
 
 import openpyxl
 
+sys.stdout.reconfigure(encoding='utf-8')
+
 _ICISA_DIR = Path(r'C:\Users\carol\PycharmProjects\ICISA information')
 SPONSOR_PATH = _ICISA_DIR / 'CFW follow up.xlsx'
 OUTPUT_PATH  = Path(__file__).parent / 'sponsorship.json'
+SHEET_NAME   = '$updates'
+
+REQUIRED_NIS = 866338
+EUR_TO_NIS   = 3.95
+
+NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
+EXPECTED_TOTAL_CELL = 'I70'
+
+
+def _to_float(v):
+    if v is None:
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    try:
+        return float(str(v).strip())
+    except (TypeError, ValueError):
+        return None
 
 
 def load_sponsorship():
     with warnings.catch_warnings():
         warnings.simplefilter('ignore')
         wb = openpyxl.load_workbook(SPONSOR_PATH, data_only=True)
-    ws = wb.active
+    ws = wb[SHEET_NAME]
+
+    expected_total_nis = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
 
     committed = []
-    todo      = []
+    todo = []
 
-    for i, row in enumerate(ws.iter_rows(values_only=True), 1):
-        if i == 1:
-            continue  # header row
-
-        # Company name: first non-empty among B (idx 1), E (idx 4), F (idx 5)
-        b = str(row[1]).strip() if len(row) > 1 and row[1] else ''
-        e = str(row[4]).strip() if len(row) > 4 and row[4] else ''
-        f = str(row[5]).strip() if len(row) > 5 and row[5] else ''
-        name = b or e or f
-        if not name or name == 'None':
+    for r in range(2, ws.max_row + 1):
+        name = ws.cell(r, NAME_COL).value
+        if name is None:
             continue
+        name = str(name).strip()
+        if not name or name.lower().startswith('expected total'):
+            break  # reached the summary row — stop reading sponsor rows
 
-        # Skip summary rows at the bottom
-        if any(kw in name for kw in ('Expected', 'Plan A', 'Plan B', 'Plan C')):
-            continue
+        note = ws.cell(r, NOTE_COL).value
+        note = str(note).strip() if note else ''
 
-        g = str(row[6]).strip() if len(row) > 6 and row[6] else ''
-        if g == 'None':
-            g = ''
-        h = row[7] if len(row) > 7 else None
+        g = _to_float(ws.cell(r, EURO_COL).value)
+        h = _to_float(ws.cell(r, NIS_COL).value)
 
-        try:
-            h_num = float(h)
-        except (TypeError, ValueError):
-            h_num = None
+        euro_amt = g if (g is not None and g > 0) else None
+        nis_amt  = h if (h is not None and h > 0) else None
+        declined = (g == 0) or (h == 0)
 
-        if h_num is not None and h_num > 0:
-            committed.append({'name': name, 'amount': h_num})
-        elif g and h_num is None:
-            todo.append({'name': name, 'note': g})
+        if euro_amt is not None or nis_amt is not None:
+            combined_nis = (euro_amt or 0) * EUR_TO_NIS + (nis_amt or 0)
+            committed.append({
+                'name': name,
+                'euro': euro_amt,
+                'nis': nis_amt,
+                'combined_nis': combined_nis,
+            })
+        elif note and not declined:
+            todo.append({'name': name, 'note': note})
 
     wb.close()
 
-    committed.sort(key=lambda x: -x['amount'])
-    total = sum(c['amount'] for c in committed)
+    committed.sort(key=lambda x: -x['combined_nis'])
+    committed_delta_nis = sum(c['combined_nis'] for c in committed)
+    gap_nis = REQUIRED_NIS - committed_delta_nis
 
-    return {'committed': committed, 'todo': todo, 'total': total}
+    return {
+        'committed': committed,
+        'todo': todo,
+        'required_nis': REQUIRED_NIS,
+        'expected_total_nis': expected_total_nis,
+        'committed_delta_nis': committed_delta_nis,
+        'gap_nis': gap_nis,
+        'eur_to_nis': EUR_TO_NIS,
+    }
 
 
 def main():
@@ -80,12 +117,22 @@ def main():
 
     print(f'Committed ({len(data["committed"])} companies):')
     for c in data['committed']:
-        print(f'  €{c["amount"]:,.0f}  {c["name"]}')
-    print(f'  TOTAL: €{data["total"]:,.0f}')
+        parts = []
+        if c['euro'] is not None:
+            parts.append(f'€{c["euro"]:,.0f}')
+        if c['nis'] is not None:
+            parts.append(f'₪{c["nis"]:,.0f}')
+        print(f'  {" + ".join(parts):20} {c["name"]}')
+    print(f'  Combined (NIS, @{data["eur_to_nis"]}): ₪{data["committed_delta_nis"]:,.0f}')
     print()
     print(f'Todo ({len(data["todo"])} companies):')
     for t in data['todo']:
         print(f'  {t["name"]:40} {t["note"]}')
+    print()
+    print(f'Required:       ₪{data["required_nis"]:,.0f}')
+    print(f'Expected total: ₪{data["expected_total_nis"]:,.0f}')
+    print(f'Committed:      ₪{data["committed_delta_nis"]:,.0f}')
+    print(f'Remaining gap:  ₪{data["gap_nis"]:,.0f}')
 
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
