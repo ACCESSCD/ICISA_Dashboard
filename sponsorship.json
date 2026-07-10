@@ -4,7 +4,7 @@
       "name": "Lapidot",
       "euro": 4500.0,
       "nis": null,
-      "combined_nis": 17775.0
+      "combined_nis": 15480.0
     },
     {
       "name": "Safedoctor",
@@ -16,7 +16,7 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 9875.0
+      "combined_nis": 8600.0
     }
   ],
   "todo": [
@@ -106,8 +106,8 @@
     }
   ],
   "required_nis": 866338,
-  "expected_total_nis": 886775.0,
-  "committed_delta_nis": 42650.0,
-  "gap_nis": 823688.0,
-  "eur_to_nis": 3.95
+  "expected_total_nis": 772280.0,
+  "committed_delta_nis": 39080.0,
+  "gap_nis": 827258.0,
+  "eur_to_nis": 3.44
 }
