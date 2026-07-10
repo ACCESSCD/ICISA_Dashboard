@@ -8,7 +8,8 @@ Column layout ("$updates" sheet):
   F  — 2026 comment / follow-up note
   G  — 2026 committed amount (Euro)
   H  — 2026 committed amount (NIS)
-  I70 — "Minimum Expected running total" (=SUM(I5:I69)), tracked in NIS
+  I70 — "Minimum Expected running total EURO" (=SUM(I5:I69)); per the I1
+        header this running total is tracked in EURO, not NIS
 
 Rules (per column, G and H are independent):
   committed  → G and/or H is a positive number
@@ -22,10 +23,10 @@ organisers — it isn't tracked anywhere in the spreadsheet, so it's a
 constant here. Update it by hand if the target changes.
 
 The summary totals (required / expected / committed / gap) are all
-converted to and displayed in Euro for uniformity, using EUR_TO_NIS.
-Per-sponsor line items keep showing their original currency. Ask the
-user for the current EUR->NIS rate each time this is regenerated —
-it's a hardcoded constant, not read from the spreadsheet.
+displayed in NIS. I70 is in Euro, so it's converted to NIS using
+EUR_TO_NIS; per-sponsor line items keep showing their original
+currency. Ask the user for the current EUR->NIS rate each time this is
+regenerated — it's a hardcoded constant, not read from the spreadsheet.
 
 Usage:  python generate_sponsorship.py
 """
@@ -67,7 +68,8 @@ def load_sponsorship():
         wb = openpyxl.load_workbook(SPONSOR_PATH, data_only=True)
     ws = wb[SHEET_NAME]
 
-    expected_total_nis = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
+    expected_total_eur = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
+    expected_total_nis = expected_total_eur * EUR_TO_NIS
 
     committed = []
     todo = []
@@ -105,19 +107,15 @@ def load_sponsorship():
 
     committed.sort(key=lambda x: -x['combined_nis'])
     committed_delta_nis = sum(c['combined_nis'] for c in committed)
-
-    required_eur       = REQUIRED_NIS / EUR_TO_NIS
-    expected_total_eur = expected_total_nis / EUR_TO_NIS
-    committed_delta_eur = committed_delta_nis / EUR_TO_NIS
-    gap_eur = required_eur - committed_delta_eur
+    gap_nis = REQUIRED_NIS - committed_delta_nis
 
     return {
         'committed': committed,
         'todo': todo,
-        'required_eur': required_eur,
-        'expected_total_eur': expected_total_eur,
-        'committed_delta_eur': committed_delta_eur,
-        'gap_eur': gap_eur,
+        'required_nis': REQUIRED_NIS,
+        'expected_total_nis': expected_total_nis,
+        'committed_delta_nis': committed_delta_nis,
+        'gap_nis': gap_nis,
         'eur_to_nis': EUR_TO_NIS,
     }
 
@@ -133,16 +131,16 @@ def main():
         if c['nis'] is not None:
             parts.append(f'₪{c["nis"]:,.0f}')
         print(f'  {" + ".join(parts):20} {c["name"]}')
-    print(f'  Combined (EUR, @{data["eur_to_nis"]} NIS/EUR): €{data["committed_delta_eur"]:,.0f}')
+    print(f'  Combined (NIS, @{data["eur_to_nis"]} NIS/EUR): ₪{data["committed_delta_nis"]:,.0f}')
     print()
     print(f'Todo ({len(data["todo"])} companies):')
     for t in data['todo']:
         print(f'  {t["name"]:40} {t["note"]}')
     print()
-    print(f'Required:       €{data["required_eur"]:,.0f}')
-    print(f'Expected total: €{data["expected_total_eur"]:,.0f}')
-    print(f'Committed:      €{data["committed_delta_eur"]:,.0f}')
-    print(f'Remaining gap:  €{data["gap_eur"]:,.0f}')
+    print(f'Required:       ₪{data["required_nis"]:,.0f}')
+    print(f'Expected total: ₪{data["expected_total_nis"]:,.0f}')
+    print(f'Committed:      ₪{data["committed_delta_nis"]:,.0f}')
+    print(f'Remaining gap:  ₪{data["gap_nis"]:,.0f}')
 
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
