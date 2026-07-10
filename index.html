@@ -80,6 +80,19 @@
 
 <div class="container-fluid px-4 py-4">
 
+  <!-- ── Countdown ── -->
+  <div class="row g-3 mb-3">
+    <div class="col-12">
+      <div class="stat-card" style="border-top-color:var(--navy);display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 18px;">
+        <div id="countdown-days" style="font-size:2.4rem;font-weight:700;color:var(--navy);line-height:1;">—</div>
+        <div style="text-align:left;">
+          <div id="countdown-label" style="font-size:.85rem;color:#888;text-transform:uppercase;letter-spacing:.5px;">—</div>
+          <div style="font-size:.78rem;color:#666;margin-top:2px;">November 17–19, Tel Aviv</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Stat cards ── -->
   <div class="row g-3 mb-4">
     <div class="col-6 col-md-3">
@@ -268,6 +281,32 @@
 <script>
 const SC = { Confirmed: '#27ae60', Pending: '#e67e22' };
 let ALL = [], sortCol = 'tasks', sortDir = -1;
+
+// ── Countdown ───────────────────────────────────────────────────────────────
+const CONFERENCE_START = new Date(2026, 10, 17);       // Nov 17, 2026 (months are 0-indexed)
+const CONFERENCE_END   = new Date(2026, 10, 19, 23, 59, 59);
+
+function renderCountdown() {
+  const now = new Date();
+  const daysEl  = document.getElementById('countdown-days');
+  const labelEl = document.getElementById('countdown-label');
+
+  if (now >= CONFERENCE_START && now <= CONFERENCE_END) {
+    daysEl.textContent = '🎉';
+    labelEl.textContent = 'ICISA 2026 is happening now!';
+    return;
+  }
+  if (now > CONFERENCE_END) {
+    daysEl.textContent = '✓';
+    labelEl.textContent = 'ICISA 2026 has concluded';
+    return;
+  }
+  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diffDays = Math.round((CONFERENCE_START - todayMidnight) / 86400000);
+  daysEl.textContent = diffDays;
+  labelEl.textContent = diffDays === 1 ? 'day until ICISA 2026' : 'days until ICISA 2026';
+}
+renderCountdown();
 
 fetch('sponsorship.json?t=' + Date.now())
   .then(r => r.json())
