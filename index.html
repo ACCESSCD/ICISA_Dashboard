@@ -121,19 +121,6 @@
     </div>
   </div>
 
-  <!-- ── Spelling stat row ── -->
-  <div class="row g-3 mb-2">
-    <div class="col-12">
-      <div class="stat-card" style="border-top-color:var(--spelling);display:flex;align-items:center;gap:16px;text-align:left;padding:12px 18px;">
-        <div style="font-size:1.6rem;font-weight:700;color:var(--spelling);min-width:2rem" id="kpi-spelling">—</div>
-        <div>
-          <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.5px;">Spelling edits needed in programme</div>
-          <div style="font-size:.78rem;color:#666;margin-top:2px;">Names in programme don't match Faculty list — flag to organisers</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ── Alert panels ── -->
   <div class="row g-3 mb-4">
     <div class="col-md-6">
@@ -364,7 +351,6 @@ function renderKPIs(speakers) {
   set('kpi-confirmed', speakers.filter(s => s.status === 'Confirmed').length);
   set('kpi-notask',    speakers.filter(s => s.tasks === 0 && !s.spelling_issue).length);
   set('kpi-heavy',     speakers.filter(s => s.tasks >= 4).length);
-  set('kpi-spelling',  speakers.filter(s => s.spelling_issue).length);
 }
 function set(id, val) { document.getElementById(id).textContent = val; }
 
