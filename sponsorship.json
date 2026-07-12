@@ -105,9 +105,9 @@
       "note": "enjoyed last conference wanto be in"
     }
   ],
-  "required_nis": 866338,
-  "expected_total_nis": 772280.0,
+  "required_nis": 977273,
+  "expected_total_nis": 665640.0,
   "committed_delta_nis": 39080.0,
-  "gap_nis": 827258.0,
+  "gap_nis": 938193.0,
   "eur_to_nis": 3.44
 }

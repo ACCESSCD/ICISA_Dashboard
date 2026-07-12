@@ -44,7 +44,7 @@ SPONSOR_PATH = _ICISA_DIR / 'CFW follow up.xlsx'
 OUTPUT_PATH  = Path(__file__).parent / 'sponsorship.json'
 SHEET_NAME   = '$updates'
 
-REQUIRED_NIS = 866338
+REQUIRED_NIS = 977273
 EUR_TO_NIS   = 3.44
 
 NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
