@@ -181,6 +181,10 @@ _MOD_ANY    = re.compile(r'moderator', re.I)
 _TIME_RE    = re.compile(r'^\d{1,2}:\d{2}')
 _CFW_PREFIX = re.compile(r'^CFW\s*:\s*', re.I)
 _DASH_RE    = re.compile(r'\s[-–]\s')
+# Debate-format lines end in "Label: ... : Speaker Name" (e.g. "Con: Keep AI
+# Out of My OR: Jens Meier") — no dash, so _DASH_RE misses them. Match a
+# trailing colon followed by a short Title-Case name (2-4 words).
+_COLON_NAME_RE = re.compile(r":\s*([A-Z][\w.'’-]*(?:\s+[A-Z][\w.'’-]*){1,3})\s*$")
 
 
 def _title_key(title):
@@ -279,6 +283,17 @@ def _collect_programme_lines():
                                      for_counting=False)
                             else:
                                 long_norm.append(norm(seg))
+                    continue
+
+                # "Label: Title: Speaker Name" debate-format lines: split off
+                # the trailing name so it's matched like any other short line.
+                colon_m = _COLON_NAME_RE.search(line) if len(words) > 5 else None
+                if colon_m:
+                    name_part = colon_m.group(1).strip()
+                    prefix = line[:colon_m.start()].strip()
+                    seg_tk = _title_key(prefix or current_title or cell_header)
+                    _add(short_lines, all_raw, all_norm, name_part, seg_tk)
+                    current_title = prefix or current_title
                     continue
 
                 # Lines longer than 5 words are likely talk titles — remember
