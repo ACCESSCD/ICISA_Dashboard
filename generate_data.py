@@ -37,6 +37,20 @@ MANUAL_EXCLUDE = {
     ('steffen', 'rex'),
 }
 
+# Known programme discrepancies that the automatic name-matching can't catch
+# (first name too short for fuzzy detection, or the programme spelling isn't a
+# near-miss of the faculty-list spelling). Correct spelling is always the
+# Faculty list Excel; this dict just documents the mismatch so it shows up in
+# the dashboard's "Spelling issues" panel instead of "no sessions".
+MANUAL_SPELLING_FLAGS = {
+    ('jacob', 'refael'):
+        'Programme lists as "Jacob Raphael" (Blood session – POC-based '
+        'transfusion algorithms talk). Faculty list spelling "Refael" is correct.',
+    ('david', 'polaner'):
+        'Has a talk in the Pediatrics session but no title is listed in the '
+        'programme (row shows "David Polaner" with "?" where the title should be).',
+}
+
 # Minimum first-name length for spelling-mismatch detection.
 # Short names (e.g. "David", "Nadav") are too common and cause false positives.
 MIN_FIRST_NAME_LEN = 6
@@ -374,6 +388,12 @@ def count_tasks_and_flag(speakers):
                 continue
             s['spelling_issue'] = raw
             break
+
+    # ── Manual overrides for known mismatches the heuristics above miss ────
+    for s in speakers:
+        key = (norm(s['first']), norm(s['last']))
+        if key in MANUAL_SPELLING_FLAGS and not s['spelling_issue']:
+            s['spelling_issue'] = MANUAL_SPELLING_FLAGS[key]
 
 
 # ── main ─────────────────────────────────────────────────────────────────────

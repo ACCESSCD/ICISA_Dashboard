@@ -116,7 +116,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -281,7 +281,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -296,7 +296,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -356,7 +356,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -416,7 +416,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 4,
     "spelling_issue": ""
   },
   {
@@ -641,8 +641,8 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": "Chirojit"
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "Vladimir",
@@ -720,7 +720,7 @@
     "spelling_issue": ""
   },
   {
-    "first": "Iurii",
+    "first": "Iurii / Yuriy",
     "last": "Kuchyn",
     "type": "Faculty Invited Speaker",
     "track": "",
@@ -761,7 +761,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -867,7 +867,7 @@
     "bio": "",
     "photo": "",
     "tasks": 0,
-    "spelling_issue": ""
+    "spelling_issue": "Programme lists as \"Jacob Raphael\" (Blood session – POC-based transfusion algorithms talk). Faculty list spelling \"Refael\" is correct."
   },
   {
     "first": "David",
@@ -881,8 +881,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": ""
+    "tasks": 1,
+    "spelling_issue": "Has a talk in the Pediatrics session but no title is listed in the programme (row shows \"David Polaner\" with \"?\" where the title should be)."
   },
   {
     "first": "Ed",
