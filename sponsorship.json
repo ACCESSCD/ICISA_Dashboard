@@ -4,7 +4,7 @@
       "name": "Lapidot",
       "euro": 4500.0,
       "nis": null,
-      "combined_nis": 15480.0
+      "combined_nis": 15390.0
     },
     {
       "name": "Safedoctor",
@@ -16,13 +16,13 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8600.0
+      "combined_nis": 8550.0
     }
   ],
   "todo": [
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
-      "note": "meeting TBD"
+      "note": "Ido answered - will be in touch next few days"
     },
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Edwards (Tzamal)",
-      "note": "smaller"
+      "note": "smaller FU with Elinor"
     },
     {
       "name": "Eltec",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Gazit",
-      "note": "not much"
+      "note": "told Nahotmi - big support"
     },
     {
       "name": "Medtechnica",
@@ -46,7 +46,7 @@
     },
     {
       "name": "Medtronic",
-      "note": "9-7- sent message"
+      "note": "12-7- Moti back frm vaca tomorrow wil be in touch"
     },
     {
       "name": "MSD",
@@ -106,8 +106,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 665640.0,
-  "committed_delta_nis": 39080.0,
-  "gap_nis": 899343.0,
-  "eur_to_nis": 3.44
+  "expected_total_nis": 832770.0,
+  "committed_delta_nis": 38940.0,
+  "gap_nis": 899483.0,
+  "eur_to_nis": 3.42
 }
