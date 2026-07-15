@@ -49,6 +49,11 @@ MANUAL_SPELLING_FLAGS = {
     ('david', 'polaner'):
         'Has a talk in the Pediatrics session but no title is listed in the '
         'programme (row shows "David Polaner" with "?" where the title should be).',
+    ('richebe', 'philippe'):
+        'First/last name are swapped in the Faculty list Excel (first-name '
+        'column has "Richebe", last-name column has "Philippe") — correct '
+        'name is Philippe Richebe. He does have 2 genuine sessions (a Pain '
+        'talk and a debate slot); only the name order is wrong.',
 }
 
 # Minimum first-name length for spelling-mismatch detection.
@@ -294,6 +299,24 @@ def _collect_programme_lines():
                     seg_tk = _title_key(prefix or current_title or cell_header)
                     _add(short_lines, all_raw, all_norm, name_part, seg_tk)
                     current_title = prefix or current_title
+                    continue
+
+                # Comma/ampersand-separated roster of short names (e.g. a panel
+                # list like "Ruth Landau, Brian Bateman, ..."): treat as names
+                # attached to the CURRENT session, not a new talk title.
+                # Otherwise someone named earlier in the same cell (e.g. via
+                # "Moderator: X") gets counted twice under two different
+                # title keys — one from the moderator line, one from this
+                # list being mistaken for a >5-word talk title.
+                roster_splits = [p.strip() for p in
+                                  re.split(r',|\s&\s|\sand\s', line, flags=re.IGNORECASE)
+                                  if p.strip()]
+                is_roster = (len(roster_splits) >= 3
+                             and all(1 <= len(p.split()) <= 4 for p in roster_splits))
+                if is_roster:
+                    tk = _title_key(current_title or cell_header)
+                    for part in roster_splits:
+                        _add(short_lines, all_raw, all_norm, part, tk)
                     continue
 
                 # Lines longer than 5 words are likely talk titles — remember
