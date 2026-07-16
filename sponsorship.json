@@ -1,6 +1,12 @@
 {
   "committed": [
     {
+      "name": "Medtronic",
+      "euro": null,
+      "nis": 75000.0,
+      "combined_nis": 75000.0
+    },
+    {
       "name": "Lapidot",
       "euro": 4500.0,
       "nis": null,
@@ -43,10 +49,6 @@
     {
       "name": "Medtechnica",
       "note": "sent letter to international - Masimo, Phillips, general"
-    },
-    {
-      "name": "Medtronic",
-      "note": "12-7- Moti back frm vaca tomorrow wil be in touch"
     },
     {
       "name": "MSD",
@@ -106,8 +108,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 832770.0,
-  "committed_delta_nis": 38940.0,
-  "gap_nis": 899483.0,
+  "expected_total_nis": 781470.0,
+  "committed_delta_nis": 113940.0,
+  "gap_nis": 824483.0,
   "eur_to_nis": 3.42
 }
