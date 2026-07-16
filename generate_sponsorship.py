@@ -23,10 +23,12 @@ organisers — it isn't tracked anywhere in the spreadsheet, so it's a
 constant here. Update it by hand if the target changes.
 
 The summary totals (required / expected / committed / gap) are all
-displayed in NIS. I70 is in Euro, so it's converted to NIS using
-EUR_TO_NIS; per-sponsor line items keep showing their original
-currency. Ask the user for the current EUR->NIS rate each time this is
-regenerated — it's a hardcoded constant, not read from the spreadsheet.
+displayed in NIS. Expected Total = Committed (G+H, converted to NIS)
++ I70 (converted to NIS) — I70 alone is just the pipeline/hoped-for
+running total, not the full expected picture, so committed money has
+to be added back in. Ask the user for the current EUR->NIS rate each
+time this is regenerated — it's a hardcoded constant, not read from
+the spreadsheet.
 
 Usage:  python generate_sponsorship.py
 """
@@ -68,8 +70,7 @@ def load_sponsorship():
         wb = openpyxl.load_workbook(SPONSOR_PATH, data_only=True)
     ws = wb[SHEET_NAME]
 
-    expected_total_eur = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
-    expected_total_nis = expected_total_eur * EUR_TO_NIS
+    pipeline_total_eur = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
 
     committed = []
     todo = []
@@ -107,6 +108,7 @@ def load_sponsorship():
 
     committed.sort(key=lambda x: -x['combined_nis'])
     committed_delta_nis = sum(c['combined_nis'] for c in committed)
+    expected_total_nis = committed_delta_nis + pipeline_total_eur * EUR_TO_NIS
     gap_nis = REQUIRED_NIS - committed_delta_nis
 
     return {
