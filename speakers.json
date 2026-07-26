@@ -185,7 +185,7 @@
     "type": "Plenary Speaker",
     "track": "Intensive care",
     "country": "Italy",
-    "email": "maurizio.cecconi@humanitas.it;\n+39 338 289 1842",
+    "email": "maurizio.cecconi@hunimed.eu; \n+39 338 289 1842",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -281,7 +281,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -750,21 +750,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Jose",
-    "last": "Salinas",
-    "type": "Faculty Invited Speaker",
-    "track": "Dr.",
-    "country": "",
-    "email": "jose.salinas4.civ@health.mil",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 2,
-    "spelling_issue": ""
-  },
-  {
     "first": "Sofia",
     "last": "Hernandez Torres",
     "type": "Faculty Invited Speaker",
@@ -881,7 +866,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": "Has a talk in the Pediatrics session but no title is listed in the programme (row shows \"David Polaner\" with \"?\" where the title should be)."
   },
   {
@@ -897,6 +882,21 @@
     "bio": "",
     "photo": "",
     "tasks": 1,
+    "spelling_issue": ""
+  },
+  {
+    "first": "Philipp",
+    "last": "Lirk",
+    "type": "",
+    "track": "Dr",
+    "country": "",
+    "email": "Philipp.Lirk@uth.tmc.edu",
+    "affil": "",
+    "inv": "",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
     "spelling_issue": ""
   }
 ]

@@ -60,6 +60,13 @@ MANUAL_SPELLING_FLAGS = {
 # Short names (e.g. "David", "Nadav") are too common and cause false positives.
 MIN_FIRST_NAME_LEN = 6
 
+# Auto-detected spelling flags that are false positives (reviewed and cleared
+# by the organiser) — fuzzy name matching can pick up an unrelated speaker's
+# name that happens to be similar (e.g. "Philipp" Lirk vs. "Philippe" Richebe).
+FALSE_POSITIVE_SPELLING = {
+    ('philipp', 'lirk'),
+}
+
 
 # ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -432,6 +439,12 @@ def count_tasks_and_flag(speakers):
         key = (norm(s['first']), norm(s['last']))
         if key in MANUAL_SPELLING_FLAGS and not s['spelling_issue']:
             s['spelling_issue'] = MANUAL_SPELLING_FLAGS[key]
+
+    # ── Clear known false-positive auto-detections ──────────────────────────
+    for s in speakers:
+        key = (norm(s['first']), norm(s['last']))
+        if key in FALSE_POSITIVE_SPELLING:
+            s['spelling_issue'] = ''
 
 
 # ── main ─────────────────────────────────────────────────────────────────────

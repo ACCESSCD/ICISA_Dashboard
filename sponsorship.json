@@ -2,21 +2,27 @@
   "committed": [
     {
       "name": "Medtronic",
-      "euro": null,
-      "nis": 75000.0,
-      "combined_nis": 75000.0
+      "euro": 35000.0,
+      "nis": null,
+      "combined_nis": 121450.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
-      "euro": null,
-      "nis": 20000.0,
-      "combined_nis": 20000.0
+      "euro": 20000.0,
+      "nis": null,
+      "combined_nis": 69400.0
+    },
+    {
+      "name": "Edwards (Tzamal)",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17350.0
     },
     {
       "name": "Lapidot",
       "euro": 4500.0,
       "nis": null,
-      "combined_nis": 15390.0
+      "combined_nis": 15615.0
     },
     {
       "name": "Safedoctor",
@@ -28,17 +34,21 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8550.0
+      "combined_nis": 8675.0
     }
   ],
   "todo": [
     {
-      "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "note": "16-7-26 want plenary with Nakenzi - going to save me money - maybe if he was 1st class and a week of hotel - but not, tried to persuade me that its some saving on the speaker! Nada betel bashishin, I said that talk is 50000 , that’s what I asked for from another company. so whys it not in the brochure? because i didnt know anyone would want it but someone else asked. if you want lunch symposium i can guarantee you 160 people, you will be theonly 1 and i can build you a THRIVE sympoium better than th eone you thought of making for 30000"
+      "name": "Base44",
+      "note": "waiting for Liran?"
     },
     {
-      "name": "Edwards (Tzamal)",
-      "note": "smaller FU with Elinor"
+      "name": "Diviscope",
+      "note": "zoom ? 21-7-26 then Liran speak"
+    },
+    {
+      "name": "Bepex Mindray + ANI + Fisher Pykel",
+      "note": "meeting booked"
     },
     {
       "name": "Eltec",
@@ -58,7 +68,7 @@
     },
     {
       "name": "Masimo (Medtechnica)",
-      "note": "Florie"
+      "note": "Florie - Barak?"
     },
     {
       "name": "Levant",
@@ -110,8 +120,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 896042.54,
-  "committed_delta_nis": 133940.0,
-  "gap_nis": 804483.0,
-  "eur_to_nis": 3.42
+  "expected_total_nis": 1041554.39,
+  "committed_delta_nis": 247490.0,
+  "gap_nis": 690933.0,
+  "eur_to_nis": 3.47
 }
