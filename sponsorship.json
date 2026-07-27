@@ -4,25 +4,37 @@
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 121450.0
+      "combined_nis": 121800.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
       "euro": 20000.0,
       "nis": null,
-      "combined_nis": 69400.0
+      "combined_nis": 69600.0
+    },
+    {
+      "name": "Eltec",
+      "euro": 10000.0,
+      "nis": null,
+      "combined_nis": 34800.0
+    },
+    {
+      "name": "Lapidot",
+      "euro": 8000.0,
+      "nis": null,
+      "combined_nis": 27840.0
+    },
+    {
+      "name": "Base44",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17400.0
     },
     {
       "name": "Edwards (Tzamal)",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17350.0
-    },
-    {
-      "name": "Lapidot",
-      "euro": 4500.0,
-      "nis": null,
-      "combined_nis": 15615.0
+      "combined_nis": 17400.0
     },
     {
       "name": "Safedoctor",
@@ -34,14 +46,10 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8675.0
+      "combined_nis": 8700.0
     }
   ],
   "todo": [
-    {
-      "name": "Base44",
-      "note": "waiting for Liran?"
-    },
     {
       "name": "Diviscope",
       "note": "zoom ? 21-7-26 then Liran speak"
@@ -49,10 +57,6 @@
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
       "note": "meeting booked"
-    },
-    {
-      "name": "Eltec",
-      "note": "International. ? Number"
     },
     {
       "name": "Gazit",
@@ -120,8 +124,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1041554.39,
-  "committed_delta_nis": 247490.0,
-  "gap_nis": 690933.0,
-  "eur_to_nis": 3.47
+  "expected_total_nis": 1115852.76,
+  "committed_delta_nis": 312540.0,
+  "gap_nis": 625883.0,
+  "eur_to_nis": 3.48
 }
