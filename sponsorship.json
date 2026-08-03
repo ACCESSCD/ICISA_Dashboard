@@ -4,43 +4,43 @@
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 121800.0
+      "combined_nis": 123200.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
       "euro": 20000.0,
       "nis": null,
-      "combined_nis": 69600.0
+      "combined_nis": 70400.0
     },
     {
       "name": "Eltec",
       "euro": 10000.0,
       "nis": null,
-      "combined_nis": 34800.0
-    },
-    {
-      "name": "Lapidot",
-      "euro": 8000.0,
-      "nis": null,
-      "combined_nis": 27840.0
+      "combined_nis": 35200.0
     },
     {
       "name": "Base44",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17400.0
+      "combined_nis": 17600.0
     },
     {
       "name": "Ami Technology",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17400.0
+      "combined_nis": 17600.0
     },
     {
       "name": "Edwards (Tzamal)",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17400.0
+      "combined_nis": 17600.0
+    },
+    {
+      "name": "Lapidot",
+      "euro": 4500.0,
+      "nis": null,
+      "combined_nis": 15840.0
     },
     {
       "name": "Safedoctor",
@@ -52,7 +52,7 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8700.0
+      "combined_nis": 8800.0
     }
   ],
   "todo": [
@@ -70,7 +70,7 @@
     },
     {
       "name": "Medtechnica",
-      "note": "sent letter to international - Masimo, Phillips, general"
+      "note": "sent letter to international - Masimo, Phillips, general. Reminded again 3-8-26 - not rushing to answer"
     },
     {
       "name": "MSD",
@@ -86,7 +86,7 @@
     },
     {
       "name": "Trupharm",
-      "note": "ask for 20000 Euro. Got amazing answwrs from all the company, and im asking small amount"
+      "note": "ask for 20000 Euro. Got amazing answwrs from all the company, and im asking small amount. We asked 3-8 for 15000"
     },
     {
       "name": "ACT",
@@ -130,8 +130,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1143692.76,
-  "committed_delta_nis": 329940.0,
-  "gap_nis": 608483.0,
-  "eur_to_nis": 3.48
+  "expected_total_nis": 1142586.24,
+  "committed_delta_nis": 321240.0,
+  "gap_nis": 617183.0,
+  "eur_to_nis": 3.52
 }

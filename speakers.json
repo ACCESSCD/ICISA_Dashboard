@@ -675,6 +675,21 @@
     "spelling_issue": ""
   },
   {
+    "first": "Ronald",
+    "last": "George",
+    "type": "Faculty Invited Speaker",
+    "track": "",
+    "country": "",
+    "email": "Ron.George@uhn.ca",
+    "affil": "",
+    "inv": "Yes",
+    "status": "Confirmed",
+    "bio": "",
+    "photo": "",
+    "tasks": 2,
+    "spelling_issue": ""
+  },
+  {
     "first": "Itay",
     "last": "Bentov",
     "type": "Faculty Invited Speaker",
@@ -841,7 +856,7 @@
   },
   {
     "first": "Jacob",
-    "last": "Refael",
+    "last": "Raphael",
     "type": "",
     "track": "PROF.",
     "country": "US",
@@ -851,8 +866,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
-    "spelling_issue": "Programme lists as \"Jacob Raphael\" (Blood session – POC-based transfusion algorithms talk). Faculty list spelling \"Refael\" is correct."
+    "tasks": 1,
+    "spelling_issue": ""
   },
   {
     "first": "David",

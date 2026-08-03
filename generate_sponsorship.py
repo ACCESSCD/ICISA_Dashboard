@@ -47,7 +47,7 @@ OUTPUT_PATH  = Path(__file__).parent / 'sponsorship.json'
 SHEET_NAME   = '$updates'
 
 REQUIRED_NIS = 938423
-EUR_TO_NIS   = 3.48
+EUR_TO_NIS   = 3.52
 
 NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
 EXPECTED_TOTAL_CELL = 'I70'
