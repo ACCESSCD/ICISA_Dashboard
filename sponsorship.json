@@ -130,7 +130,7 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1142586.24,
+  "expected_total_nis": 1128506.24,
   "committed_delta_nis": 321240.0,
   "gap_nis": 617183.0,
   "eur_to_nis": 3.52
