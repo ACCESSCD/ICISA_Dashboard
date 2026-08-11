@@ -31,6 +31,12 @@
       "combined_nis": 34600.0
     },
     {
+      "name": "Lapidot",
+      "euro": 8000.0,
+      "nis": null,
+      "combined_nis": 27680.0
+    },
+    {
       "name": "Base44",
       "euro": 5000.0,
       "nis": null,
@@ -47,12 +53,6 @@
       "euro": 5000.0,
       "nis": null,
       "combined_nis": 17300.0
-    },
-    {
-      "name": "Lapidot",
-      "euro": 4500.0,
-      "nis": null,
-      "combined_nis": 15570.0
     },
     {
       "name": "Safedoctor",
@@ -134,8 +134,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1196026.02,
-  "committed_delta_nis": 412900.0,
-  "gap_nis": 525523.0,
+  "expected_total_nis": 1220246.02,
+  "committed_delta_nis": 425010.0,
+  "gap_nis": 513413.0,
   "eur_to_nis": 3.46
 }
