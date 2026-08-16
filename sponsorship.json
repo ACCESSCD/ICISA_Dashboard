@@ -55,6 +55,12 @@
       "combined_nis": 17100.0
     },
     {
+      "name": "קלינטיקה",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17100.0
+    },
+    {
       "name": "Safedoctor",
       "euro": null,
       "nis": 15000.0,
@@ -134,8 +140,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1223412.54,
-  "committed_delta_nis": 437370.0,
-  "gap_nis": 501053.0,
+  "expected_total_nis": 1240512.54,
+  "committed_delta_nis": 454470.0,
+  "gap_nis": 483953.0,
   "eur_to_nis": 3.42
 }

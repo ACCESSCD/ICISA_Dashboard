@@ -50,7 +50,7 @@ REQUIRED_NIS = 938423
 EUR_TO_NIS   = 3.42
 
 NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
-EXPECTED_TOTAL_CELL = 'I70'
+EXPECTED_TOTAL_COL = 9  # column I
 
 
 def _to_float(v):
@@ -70,7 +70,7 @@ def load_sponsorship():
         wb = openpyxl.load_workbook(SPONSOR_PATH, data_only=True)
     ws = wb[SHEET_NAME]
 
-    pipeline_total_eur = _to_float(ws[EXPECTED_TOTAL_CELL].value) or 0.0
+    pipeline_total_eur = None
 
     committed = []
     todo = []
@@ -80,7 +80,10 @@ def load_sponsorship():
         if name is None:
             continue
         name = str(name).strip()
-        if not name or name.lower().startswith('expected total'):
+        if not name:
+            break
+        if name.lower().startswith('expected total'):
+            pipeline_total_eur = _to_float(ws.cell(r, EXPECTED_TOTAL_COL).value) or 0.0
             break  # reached the summary row — stop reading sponsor rows
 
         note = ws.cell(r, NOTE_COL).value
@@ -105,6 +108,9 @@ def load_sponsorship():
             todo.append({'name': name, 'note': note})
 
     wb.close()
+
+    if pipeline_total_eur is None:
+        raise ValueError("Could not find the 'Expected total' row in the sheet")
 
     committed.sort(key=lambda x: -x['combined_nis'])
     committed_delta_nis = sum(c['combined_nis'] for c in committed)
