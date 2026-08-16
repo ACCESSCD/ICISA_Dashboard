@@ -4,55 +4,55 @@
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 121100.0
+      "combined_nis": 119700.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
       "euro": 20000.0,
       "nis": null,
-      "combined_nis": 69200.0
+      "combined_nis": 68400.0
     },
     {
       "name": "BD",
       "euro": 18000.0,
       "nis": null,
-      "combined_nis": 62280.0
+      "combined_nis": 61560.0
     },
     {
       "name": "Eltec",
-      "euro": 10000.0,
+      "euro": 15000.0,
       "nis": null,
-      "combined_nis": 34600.0
+      "combined_nis": 51300.0
     },
     {
       "name": "Trupharm",
       "euro": 10000.0,
       "nis": null,
-      "combined_nis": 34600.0
+      "combined_nis": 34200.0
     },
     {
       "name": "Lapidot",
       "euro": 8000.0,
       "nis": null,
-      "combined_nis": 27680.0
+      "combined_nis": 27360.0
     },
     {
       "name": "Base44",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17300.0
+      "combined_nis": 17100.0
     },
     {
       "name": "Ami Technology",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17300.0
+      "combined_nis": 17100.0
     },
     {
       "name": "Edwards (Tzamal)",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17300.0
+      "combined_nis": 17100.0
     },
     {
       "name": "Safedoctor",
@@ -64,7 +64,7 @@
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8650.0
+      "combined_nis": 8550.0
     }
   ],
   "todo": [
@@ -134,8 +134,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1220246.02,
-  "committed_delta_nis": 425010.0,
-  "gap_nis": 513413.0,
-  "eur_to_nis": 3.46
+  "expected_total_nis": 1223412.54,
+  "committed_delta_nis": 437370.0,
+  "gap_nis": 501053.0,
+  "eur_to_nis": 3.42
 }
