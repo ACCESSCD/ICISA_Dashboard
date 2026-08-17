@@ -193,24 +193,15 @@
     </div>
   </div>
 
-  <!-- ── Sponsorship panels ── -->
+  <!-- ── Sponsorship: committed companies ── -->
   <div class="row g-3 mb-4">
-    <div class="col-md-5">
+    <div class="col-12">
       <div class="panel">
         <div class="panel-title" style="color:var(--sponsor)">
           Committed sponsorship
           <span id="sponsor-total" style="font-weight:400;color:#aaa;"></span>
         </div>
         <div id="sponsor-list"></div>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="panel">
-        <div class="panel-title" style="color:var(--todo)">
-          Companies to follow up
-          <span id="todo-count" style="font-weight:400;color:#aaa;"></span>
-        </div>
-        <div class="name-list" id="todo-list"></div>
       </div>
     </div>
   </div>
@@ -240,7 +231,7 @@
             <span style="color:var(--revenue);font-weight:700;font-size:.9rem;" id="rev-workshops"></span>
           </div>
           <div class="name-item" style="justify-content:space-between;">
-            <span style="font-weight:600">Gala Dinner <span style="color:#aaa;font-weight:400;font-style:italic;">(TBD — price per ticket not yet set)</span></span>
+            <span style="font-weight:600">Gala Dinner <span style="color:#aaa;font-weight:400;font-style:italic;">(350 NIS/ticket; 280 NIS with Full Registration Full Package; 300 NIS accompanying guest)</span></span>
             <span style="color:var(--revenue);font-weight:700;font-size:.9rem;" id="rev-gala"></span>
           </div>
         </div>
@@ -249,6 +240,19 @@
           <span id="rev-combo-pct"></span>
           <span id="rev-combo-remaining"></span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Sponsorship: companies to follow up (notes) ── -->
+  <div class="row g-3 mb-4">
+    <div class="col-12">
+      <div class="panel">
+        <div class="panel-title" style="color:var(--todo)">
+          Companies to follow up
+          <span id="todo-count" style="font-weight:400;color:#aaa;"></span>
+        </div>
+        <div class="name-list" id="todo-list"></div>
       </div>
     </div>
   </div>
@@ -346,7 +350,7 @@ renderCountdown();
 const REVENUE = {
   registration: { total: 83870,  target: 889700 },
   workshops:    3900,
-  gala:         0,
+  gala:         0,   // ticket prices: 350 NIS standard / 280 NIS Full Reg. Full Package / 300 NIS accompanying guest
   comboTarget:  30000,
 };
 renderRevenue();
