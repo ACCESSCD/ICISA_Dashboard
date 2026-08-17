@@ -226,13 +226,8 @@
         </div>
         <div class="revenue-total" id="rev-combo-total" style="color:var(--revenue)">—</div>
         <div class="revenue-sub">
-          <div class="name-item" style="justify-content:space-between;">
-            <span style="font-weight:600">Hands-On Workshops</span>
-            <span style="color:var(--revenue);font-weight:700;font-size:.9rem;" id="rev-workshops"></span>
-          </div>
-          <div class="name-item" style="justify-content:space-between;">
-            <span style="font-weight:600">Gala Dinner <span style="color:#aaa;font-weight:400;font-style:italic;">(350 NIS/ticket; 280 NIS with Full Registration Full Package; 300 NIS accompanying guest)</span></span>
-            <span style="color:var(--revenue);font-weight:700;font-size:.9rem;" id="rev-gala"></span>
+          <div class="name-item">
+            <span style="color:#aaa;font-size:.82rem;font-style:italic;">Combined income, not tracked separately &mdash; gala ticket prices: 350 NIS standard / 280 NIS with Full Registration Full Package / 300 NIS accompanying guest</span>
           </div>
         </div>
         <div class="progress-track"><div class="progress-fill" id="rev-combo-bar" style="width:0%"></div></div>
@@ -349,8 +344,7 @@ renderCountdown();
 // ── Revenue (manually entered — update these numbers by hand, no live source) ─
 const REVENUE = {
   registration: { total: 83870,  target: 889700 },
-  workshops:    3900,
-  gala:         0,   // ticket prices: 350 NIS standard / 280 NIS Full Reg. Full Package / 300 NIS accompanying guest
+  combo:        12580,  // Hands-On Workshops + Gala Dinner, combined ticket income (not tracked separately)
   comboTarget:  30000,
 };
 renderRevenue();
@@ -363,11 +357,9 @@ function renderRevenue() {
   document.getElementById('rev-reg-pct').textContent = `${regPct.toFixed(1)}% of ${nis(reg.target)} target`;
   document.getElementById('rev-reg-remaining').textContent = `${nis(Math.max(reg.target - reg.total, 0))} remaining`;
 
-  const comboTotal = REVENUE.workshops + REVENUE.gala;
+  const comboTotal = REVENUE.combo;
   const comboPct = comboTotal / REVENUE.comboTarget * 100;
   set('rev-combo-total', nis(comboTotal));
-  set('rev-workshops', nis(REVENUE.workshops));
-  set('rev-gala', nis(REVENUE.gala));
   document.getElementById('rev-combo-bar').style.width = Math.min(comboPct, 100) + '%';
   document.getElementById('rev-combo-pct').textContent = `${comboPct.toFixed(1)}% of ${nis(REVENUE.comboTarget)} target`;
   document.getElementById('rev-combo-remaining').textContent = `${nis(Math.max(REVENUE.comboTarget - comboTotal, 0))} remaining`;
