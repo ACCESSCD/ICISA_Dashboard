@@ -4,61 +4,73 @@
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 119700.0
+      "combined_nis": 121100.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
       "euro": 20000.0,
       "nis": null,
-      "combined_nis": 68400.0
+      "combined_nis": 69200.0
     },
     {
       "name": "BD",
       "euro": 18000.0,
       "nis": null,
-      "combined_nis": 61560.0
+      "combined_nis": 62280.0
     },
     {
       "name": "Eltec",
       "euro": 15000.0,
       "nis": null,
-      "combined_nis": 51300.0
+      "combined_nis": 51900.0
     },
     {
       "name": "Trupharm",
       "euro": 10000.0,
       "nis": null,
-      "combined_nis": 34200.0
+      "combined_nis": 34600.0
+    },
+    {
+      "name": "Diviscope",
+      "euro": 8000.0,
+      "nis": null,
+      "combined_nis": 27680.0
     },
     {
       "name": "Lapidot",
       "euro": 8000.0,
       "nis": null,
-      "combined_nis": 27360.0
+      "combined_nis": 27680.0
     },
     {
       "name": "Base44",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17100.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Ami Technology",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17100.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Edwards (Tzamal)",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17100.0
+      "combined_nis": 17300.0
+    },
+    {
+      "name": "DCS Sonosite",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17300.0
     },
     {
       "name": "קלינטיקה",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17100.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Safedoctor",
@@ -67,20 +79,26 @@
       "combined_nis": 15000.0
     },
     {
+      "name": "Gil",
+      "euro": 4000.0,
+      "nis": null,
+      "combined_nis": 13840.0
+    },
+    {
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8550.0
+      "combined_nis": 8650.0
     }
   ],
   "todo": [
     {
-      "name": "Diviscope",
-      "note": "zoom ? 21-7-26 then Liran speak"
-    },
-    {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
       "note": "meeting booked"
+    },
+    {
+      "name": "Flat Medical",
+      "note": "pitch"
     },
     {
       "name": "Gazit",
@@ -103,8 +121,16 @@
       "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
     },
     {
+      "name": "Getter",
+      "note": "playing, waiting"
+    },
+    {
+      "name": "Ferring",
+      "note": "mitragseh, no budget"
+    },
+    {
       "name": "ACT",
-      "note": "wants to be bigger"
+      "note": "wants to be bigger, wanted to meet me,"
     },
     {
       "name": "Breslauer",
@@ -112,7 +138,7 @@
     },
     {
       "name": "Dover",
-      "note": "9-7- sent message"
+      "note": "9-7- sent message; 18-8-26 push them"
     },
     {
       "name": "Eldan",
@@ -120,11 +146,19 @@
     },
     {
       "name": "Ilex",
-      "note": "meeting 13-7-26"
+      "note": "meeting 13-7-26; disappear"
+    },
+    {
+      "name": "Medisim",
+      "note": "they said maybe?"
     },
     {
       "name": "Medlife",
-      "note": "9-7 move forward"
+      "note": "9-7 move forward 18-8 now not interested"
+    },
+    {
+      "name": "Novohealth",
+      "note": "noone to talk to"
     },
     {
       "name": "medanes",
@@ -132,16 +166,28 @@
     },
     {
       "name": "Shanital",
-      "note": "9-7 move forward. Have echo probe"
+      "note": "9-7 move forward. Have echo probe has budget of 10000 nIS = 3000 Euro"
     },
     {
-      "name": "Remed",
+      "name": "Medifisher",
+      "note": "have baby sim dolls - 3000 Euro allowed without duchan"
+    },
+    {
+      "name": "Bank Discount",
+      "note": "may come - private banking, 15-20 000 EURO"
+    },
+    {
+      "name": "Kablan",
+      "note": "checking 5000"
+    },
+    {
+      "name": "Riomed",
       "note": "enjoyed last conference wanto be in"
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 1240512.54,
-  "committed_delta_nis": 454470.0,
-  "gap_nis": 483953.0,
-  "eur_to_nis": 3.42
+  "expected_total_nis": 1377157.02,
+  "committed_delta_nis": 518430.0,
+  "gap_nis": 419993.0,
+  "eur_to_nis": 3.46
 }
