@@ -23,12 +23,15 @@ organisers — it isn't tracked anywhere in the spreadsheet, so it's a
 constant here. Update it by hand if the target changes.
 
 The summary totals (required / expected / committed / gap) are all
-displayed in NIS. Expected Total = Committed (G+H, converted to NIS)
-+ I70 (converted to NIS) — I70 alone is just the pipeline/hoped-for
-running total, not the full expected picture, so committed money has
-to be added back in. Ask the user for the current EUR->NIS rate each
-time this is regenerated — it's a hardcoded constant, not read from
-the spreadsheet.
+displayed in NIS. Expected Total and Committed are SEPARATE figures,
+shown side by side on the dashboard — do not add them together.
+Expected Total = the "Expected total" row (column I, in EUR) converted
+to NIS. Column I is a per-company "minimum expected" estimate that
+already includes most committed sponsors (e.g. Medtronic's committed
+€35,000 is also its I value), so summing it with Committed double-counts
+those sponsors. Ask the user for the current EUR->NIS rate each time
+this is regenerated — it's a hardcoded constant, not read from the
+spreadsheet.
 
 Usage:  python generate_sponsorship.py
 """
@@ -114,7 +117,7 @@ def load_sponsorship():
 
     committed.sort(key=lambda x: -x['combined_nis'])
     committed_delta_nis = sum(c['combined_nis'] for c in committed)
-    expected_total_nis = committed_delta_nis + pipeline_total_eur * EUR_TO_NIS
+    expected_total_nis = pipeline_total_eur * EUR_TO_NIS
     gap_nis = REQUIRED_NIS - committed_delta_nis
 
     return {
