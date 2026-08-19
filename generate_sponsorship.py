@@ -8,8 +8,12 @@ Column layout ("$updates" sheet):
   F  — 2026 comment / follow-up note
   G  — 2026 committed amount (Euro)
   H  — 2026 committed amount (NIS)
-  I70 — "Minimum Expected running total EURO" (=SUM(I5:I69)); per the I1
-        header this running total is tracked in EURO, not NIS
+  I  — per-company "Minimum Expected" amount, tracked in EURO (per the I1
+       header). Row 77 holds a =SUM(...) formula labelled "Expected total",
+       but this script sums column I itself (rows 2..that row) rather than
+       reading the formula's cached value, since openpyxl edits don't
+       trigger Excel to recalculate — reading the cached total would go
+       stale after any script-driven edit to the sheet.
 
 Rules (per column, G and H are independent):
   committed  → G and/or H is a positive number
@@ -73,7 +77,7 @@ def load_sponsorship():
         wb = openpyxl.load_workbook(SPONSOR_PATH, data_only=True)
     ws = wb[SHEET_NAME]
 
-    pipeline_total_eur = None
+    pipeline_total_eur = 0.0
 
     committed = []
     todo = []
@@ -86,8 +90,9 @@ def load_sponsorship():
         if not name:
             break
         if name.lower().startswith('expected total'):
-            pipeline_total_eur = _to_float(ws.cell(r, EXPECTED_TOTAL_COL).value) or 0.0
-            break  # reached the summary row — stop reading sponsor rows
+            break  # reached the summary row (a =SUM formula) — stop reading sponsor rows
+
+        pipeline_total_eur += _to_float(ws.cell(r, EXPECTED_TOTAL_COL).value) or 0.0
 
         note = ws.cell(r, NOTE_COL).value
         note = str(note).strip() if note else ''
@@ -111,9 +116,6 @@ def load_sponsorship():
             todo.append({'name': name, 'note': note})
 
     wb.close()
-
-    if pipeline_total_eur is None:
-        raise ValueError("Could not find the 'Expected total' row in the sheet")
 
     committed.sort(key=lambda x: -x['combined_nis'])
     committed_delta_nis = sum(c['combined_nis'] for c in committed)

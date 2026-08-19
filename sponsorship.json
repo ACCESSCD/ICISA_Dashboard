@@ -61,6 +61,12 @@
       "combined_nis": 17300.0
     },
     {
+      "name": "Breslauer",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17300.0
+    },
+    {
       "name": "DCS Sonosite",
       "euro": 5000.0,
       "nis": null,
@@ -131,10 +137,6 @@
     {
       "name": "ACT",
       "note": "wants to be bigger, wanted to meet me,"
-    },
-    {
-      "name": "Breslauer",
-      "note": "sms sent 9-7 about airway"
     },
     {
       "name": "Dover",
@@ -262,8 +264,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 876027.02,
-  "committed_delta_nis": 508050.0,
-  "gap_nis": 430373.0,
+  "expected_total_nis": 896787.02,
+  "committed_delta_nis": 525350.0,
+  "gap_nis": 413073.0,
   "eur_to_nis": 3.46
 }
