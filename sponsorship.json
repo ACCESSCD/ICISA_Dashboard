@@ -2,9 +2,9 @@
   "committed": [
     {
       "name": "Medtronic",
-      "euro": 35000.0,
+      "euro": 25000.0,
       "nis": null,
-      "combined_nis": 121100.0
+      "combined_nis": 86500.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
@@ -264,8 +264,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 896787.02,
-  "committed_delta_nis": 525350.0,
-  "gap_nis": 413073.0,
+  "expected_total_nis": 862187.02,
+  "committed_delta_nis": 490750.0,
+  "gap_nis": 447673.0,
   "eur_to_nis": 3.46
 }
