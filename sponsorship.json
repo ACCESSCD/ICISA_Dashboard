@@ -2,9 +2,9 @@
   "committed": [
     {
       "name": "Medtronic",
-      "euro": 25000.0,
+      "euro": 35000.0,
       "nis": null,
-      "combined_nis": 86500.0
+      "combined_nis": 121100.0
     },
     {
       "name": "Mindray (Bepex) Sponsored Lunch",
@@ -26,9 +26,9 @@
     },
     {
       "name": "Trupharm",
-      "euro": 10000.0,
+      "euro": 11000.0,
       "nis": null,
-      "combined_nis": 34600.0
+      "combined_nis": 38060.0
     },
     {
       "name": "Diviscope",
@@ -108,7 +108,7 @@
     },
     {
       "name": "Gazit",
-      "note": "told Nahotmi - big support"
+      "note": "told Nahotmi - big support. Writing to say thanks but no thanks"
     },
     {
       "name": "Medtechnica",
@@ -264,8 +264,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 862187.02,
-  "committed_delta_nis": 490750.0,
-  "gap_nis": 447673.0,
+  "expected_total_nis": 841427.02,
+  "committed_delta_nis": 528810.0,
+  "gap_nis": 409613.0,
   "eur_to_nis": 3.46
 }
