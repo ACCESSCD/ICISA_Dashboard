@@ -54,6 +54,18 @@ MANUAL_SPELLING_FLAGS = {
         'column has "Richebe", last-name column has "Philippe") — correct '
         'name is Philippe Richebe. He does have 2 genuine sessions (a Pain '
         'talk and a debate slot); only the name order is wrong.',
+    ('ed', 'cohen'):
+        'Faculty list first name is "Ed" but the programme spells it "Edmond '
+        'Cohen" (Lungs session — Tubeless Thoracic Procedures talk). Task '
+        'count below is matched via the manual alias in MANUAL_FIRST_NAME_ALIASES.',
+}
+
+# First-name variants too short/different for automatic matching (either the
+# <=3-char exact-boundary rule or the 3-char prefix rule) to bridge, but a
+# known real match — e.g. faculty list has "Ed" where the programme spells
+# out "Edmond". Maps (norm(first), norm(last)) -> programme-spelling first name.
+MANUAL_FIRST_NAME_ALIASES = {
+    ('ed', 'cohen'): 'edmond',
 }
 
 # Minimum first-name length for spelling-mismatch detection.
@@ -197,6 +209,12 @@ _DASH_RE    = re.compile(r'\s[-–]\s')
 # Out of My OR: Jens Meier") — no dash, so _DASH_RE misses them. Match a
 # trailing colon followed by a short Title-Case name (2-4 words).
 _COLON_NAME_RE = re.compile(r":\s*([A-Z][\w.'’-]*(?:\s+[A-Z][\w.'’-]*){1,3})\s*$")
+# Title and speaker sometimes land on one line with no newline between them,
+# e.g. "Tubeless Thoracic Procedures: Myth or Reality? Edmond Cohen" — match
+# a trailing name right after a "?" (a title-ending "?" immediately followed
+# by a Title-Case name is unambiguous; a real title continuing past "?"
+# wouldn't be all-caps-first words).
+_QMARK_NAME_RE = re.compile(r"\?\s*([A-Z][\w.'’-]*(?:\s+[A-Z][\w.'’-]*){0,3})\s*$")
 
 
 def _title_key(title):
@@ -308,6 +326,17 @@ def _collect_programme_lines():
                     current_title = prefix or current_title
                     continue
 
+                # "Title...? Speaker Name" on one line (no newline break before
+                # the name) — see _QMARK_NAME_RE comment above.
+                qmark_m = _QMARK_NAME_RE.search(line) if len(words) > 5 else None
+                if qmark_m:
+                    name_part = qmark_m.group(1).strip()
+                    prefix = line[:qmark_m.start() + 1].strip()
+                    seg_tk = _title_key(prefix or current_title or cell_header)
+                    _add(short_lines, all_raw, all_norm, name_part, seg_tk)
+                    current_title = prefix or current_title
+                    continue
+
                 # Comma/ampersand-separated roster of short names (e.g. a panel
                 # list like "Ruth Landau, Brian Bateman, ..."): treat as names
                 # attached to the CURRENT session, not a new talk title.
@@ -368,7 +397,7 @@ def count_tasks_and_flag(speakers):
         if not key:
             continue
         key_re = re.compile(r'\b' + re.escape(key) + r'\b')
-        fn = norm(s['first'])
+        fn = MANUAL_FIRST_NAME_ALIASES.get((norm(s['first']), norm(s['last'])), norm(s['first']))
         # Short first names need a word boundary on both sides (e.g. "Ed" must
         # not match "Edmond"). Longer names use a prefix match with no trailing
         # boundary so "Dan" matches "Danny" / "Daniel" interchangeably.

@@ -86,7 +86,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -161,7 +161,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -191,7 +191,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -341,7 +341,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 4,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -506,7 +506,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -536,7 +536,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -551,8 +551,8 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
+    "tasks": 0,
+    "spelling_issue": "Michael O'Connor"
   },
   {
     "first": "Michael",
@@ -837,7 +837,7 @@
     "bio": "",
     "photo": "",
     "tasks": 1,
-    "spelling_issue": ""
+    "spelling_issue": "Faculty list first name is \"Ed\" but the programme spells it \"Edmond Cohen\" (Lungs session — Tubeless Thoracic Procedures talk). Task count below is matched via the manual alias in MANUAL_FIRST_NAME_ALIASES."
   },
   {
     "first": "Philipp",
