@@ -77,6 +77,7 @@ MIN_FIRST_NAME_LEN = 6
 # name that happens to be similar (e.g. "Philipp" Lirk vs. "Philippe" Richebe).
 FALSE_POSITIVE_SPELLING = {
     ('philipp', 'lirk'),
+    ('michael', 'lewis'),
 }
 
 
