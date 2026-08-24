@@ -103,20 +103,8 @@
       "note": "meeting booked"
     },
     {
-      "name": "Flat Medical",
-      "note": "pitch"
-    },
-    {
-      "name": "Gazit",
-      "note": "told Nahotmi - big support. Writing to say thanks but no thanks"
-    },
-    {
       "name": "Medtechnica",
-      "note": "sent letter to international - Masimo, Phillips, general. Reminded again 3-8-26 - not rushing to answer - no more Meir, now have Ravit"
-    },
-    {
-      "name": "MSD",
-      "note": "no"
+      "note": "sent letter to international - Masimo, Phillips, general. Reminded again 3-8-26 - not rushing to answer - no more Meir, now have Ravit. 23-8-26 will be in"
     },
     {
       "name": "Masimo (Medtechnica)",
@@ -147,56 +135,16 @@
       "note": "want to be in"
     },
     {
-      "name": "Gamida",
-      "note": "not relevant"
-    },
-    {
-      "name": "GSK",
-      "note": "not relevant"
-    },
-    {
       "name": "Ilex",
       "note": "meeting 13-7-26; disappear"
-    },
-    {
-      "name": "Kalir",
-      "note": "not interested"
     },
     {
       "name": "Fize medical",
       "note": "asked Sima"
     },
     {
-      "name": "Sh Shivook",
-      "note": "not interested"
-    },
-    {
-      "name": "Medisim",
-      "note": "they said maybe?"
-    },
-    {
-      "name": "Medirom",
-      "note": "not relevant"
-    },
-    {
       "name": "Pharmacologic",
       "note": "asked Sima"
-    },
-    {
-      "name": "Mennen",
-      "note": "asked Aeyal"
-    },
-    {
-      "name": "Medlife",
-      "note": "9-7 move forward 18-8 now not interested"
-    },
-    {
-      "name": "Novohealth",
-      "note": "noone to talk to"
-    },
-    {
-      "name": "medanes",
-      "note": "no"
     },
     {
       "name": "sela medical סלא",
@@ -215,20 +163,8 @@
       "note": "dlnt know if we need"
     },
     {
-      "name": "Safeguard",
-      "note": "INO"
-    },
-    {
       "name": "Medifisher",
       "note": "have baby sim dolls - 3000 Euro allowed without duchan"
-    },
-    {
-      "name": "IMD Soft",
-      "note": "not relevant"
-    },
-    {
-      "name": "Ran Cohen",
-      "note": "not interested"
     },
     {
       "name": "CSL Behring",
@@ -247,14 +183,6 @@
       "note": "checking 5000 Euro"
     },
     {
-      "name": "Teva",
-      "note": "unlikely"
-    },
-    {
-      "name": "Loewnstein",
-      "note": "not interested"
-    },
-    {
       "name": "Gad Medical",
       "note": "max 3000 Euro"
     },
@@ -264,7 +192,7 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 841427.02,
+  "expected_total_nis": 831047.02,
   "committed_delta_nis": 528810.0,
   "gap_nis": 409613.0,
   "eur_to_nis": 3.46
