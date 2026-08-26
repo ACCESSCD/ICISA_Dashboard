@@ -1,16 +1,22 @@
 {
   "committed": [
     {
+      "name": "Medtechnica",
+      "euro": 35000.0,
+      "nis": null,
+      "combined_nis": 121100.0
+    },
+    {
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
       "combined_nis": 121100.0
     },
     {
-      "name": "Mindray (Bepex) Sponsored Lunch",
-      "euro": 20000.0,
+      "name": "Bepex Mindray + ANI + Fisher Pykel",
+      "euro": 15000.0,
       "nis": null,
-      "combined_nis": 69200.0
+      "combined_nis": 51900.0
     },
     {
       "name": "Eltec",
@@ -99,14 +105,6 @@
   ],
   "todo": [
     {
-      "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "note": "meeting booked"
-    },
-    {
-      "name": "Medtechnica",
-      "note": "sent letter to international - Masimo, Phillips, general. Reminded again 3-8-26 - not rushing to answer - no more Meir, now have Ravit. 23-8-26 will be in"
-    },
-    {
       "name": "Masimo (Medtechnica)",
       "note": "Florie - Barak?"
     },
@@ -192,8 +190,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 831047.02,
-  "committed_delta_nis": 528810.0,
-  "gap_nis": 409613.0,
+  "expected_total_nis": 900247.02,
+  "committed_delta_nis": 632610.0,
+  "gap_nis": 305813.0,
   "eur_to_nis": 3.46
 }
