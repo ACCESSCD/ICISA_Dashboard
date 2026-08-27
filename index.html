@@ -227,7 +227,7 @@
         <div class="revenue-total" id="rev-combo-total" style="color:var(--revenue)">—</div>
         <div class="revenue-sub">
           <div class="name-item">
-            <span style="color:#aaa;font-size:.82rem;font-style:italic;">Combined income &mdash; gala dinner is included with a Full Package; separate gala tickets are 280 NIS when bought with a 3-day full Scientific registration, otherwise 350 NIS (accompanying guests and honorary guests: 350 NIS). Hands-On workshop registrations are 100 NIS each.</span>
+            <span style="color:#aaa;font-size:.82rem;font-style:italic;">Combined income. Every Full Package includes a gala dinner ticket (unless declined); that value is counted here, not in Registration Revenue. Gala tickets are 280 NIS with a 3-day Full Package, otherwise 350 NIS (2-/1-day packages, accompanying guests, honorary guests). Hands-On workshop registrations are 100 NIS each.</span>
           </div>
         </div>
         <div class="progress-track"><div class="progress-fill" id="rev-combo-bar" style="width:0%"></div></div>
@@ -352,8 +352,8 @@ renderCountdown();
 
 // ── Revenue (manually entered — update these numbers by hand, no live source) ─
 const REVENUE = {
-  registration: { total: 221893, target: 889700 },  // 27.8 status reports: 169,010 NIS local + 15,284 EUR intl @3.46 = 52,883 NIS
-  combo:        11050,  // Gala (2,450 NIS) + Hands-On Workshops (86 regs x 100 = 8,600 NIS), paid/confirmed
+  registration: { total: 214509, target: 889700 },  // 27.8 reports, gala carved out: 166,470 local + 13,884 EUR intl @3.46 = 48,039
+  combo:        19380,  // Gala 10,780 (15 local + 14 intl pkg tickets, 1 honorary, 6 accompanying) + Hands-On 8,600 (86 x 100)
   comboTarget:  30000,
 };
 renderRevenue();
