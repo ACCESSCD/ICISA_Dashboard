@@ -103,90 +103,88 @@
       "combined_nis": 8650.0
     }
   ],
-  "todo": [
+  "pending_no_commitment": [
     {
       "name": "Masimo (Medtechnica)",
+      "expected_eur": 15000.0,
+      "expected_nis": 51900.0,
       "note": "Florie - Barak?"
     },
     {
       "name": "Levant",
+      "expected_eur": 15000.0,
+      "expected_nis": 51900.0,
       "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
     },
     {
-      "name": "Getter",
-      "note": "playing, waiting"
-    },
-    {
-      "name": "Ferring",
-      "note": "mitragseh, no budget"
-    },
-    {
       "name": "ACT",
+      "expected_eur": 5000.0,
+      "expected_nis": 17300.0,
       "note": "wants to be bigger, wanted to meet me,"
     },
     {
-      "name": "Dover",
-      "note": "9-7- sent message; 18-8-26 push them"
-    },
-    {
       "name": "Eldan",
+      "expected_eur": 5000.0,
+      "expected_nis": 17300.0,
       "note": "want to be in"
     },
     {
-      "name": "Ilex",
-      "note": "meeting 13-7-26; disappear"
+      "name": "Riomed",
+      "expected_eur": 5000.0,
+      "expected_nis": 17300.0,
+      "note": "enjoyed last conference wanto be in"
     },
     {
-      "name": "Fize medical",
-      "note": "asked Sima"
+      "name": "Getter",
+      "expected_eur": 4000.0,
+      "expected_nis": 13840.0,
+      "note": "playing, waiting"
     },
     {
-      "name": "Pharmacologic",
-      "note": "asked Sima"
-    },
-    {
-      "name": "sela medical סלא",
-      "note": "asked"
+      "name": "Dover",
+      "expected_eur": 4000.0,
+      "expected_nis": 13840.0,
+      "note": "9-7- sent message; 18-8-26 push them"
     },
     {
       "name": "Shanital",
+      "expected_eur": 3000.0,
+      "expected_nis": 10380.0,
       "note": "9-7 move forward. Have echo probe has budget of 10000 nIS = 3000 Euro"
     },
     {
-      "name": "Dividend",
-      "note": "have fixed 10000 to give if they do"
-    },
-    {
-      "name": "symbionix",
-      "note": "dlnt know if we need"
-    },
-    {
       "name": "Medifisher",
+      "expected_eur": 3000.0,
+      "expected_nis": 10380.0,
       "note": "have baby sim dolls - 3000 Euro allowed without duchan"
     },
     {
-      "name": "CSL Behring",
-      "note": "asked again"
+      "name": "Dividend",
+      "expected_eur": 2350.0,
+      "expected_nis": 8131.0,
+      "note": "have fixed 10000 to give if they do"
+    }
+  ],
+  "expected_discrepancy": [
+    {
+      "name": "Bepex Mindray + ANI + Fisher Pykel",
+      "committed_euro": 15000.0,
+      "committed_nis": null,
+      "committed_combined_nis": 51900.0,
+      "expected_eur": 23000.0,
+      "expected_nis": 79580.0,
+      "delta_nis": 27680.0,
+      "note": "meeting booked"
     },
     {
-      "name": "Astra Zeneca",
-      "note": "not interested"
-    },
-    {
-      "name": "Bank Discount",
-      "note": "may come - private banking, 15-20 000 NIS or Euro?"
-    },
-    {
-      "name": "Kablan",
-      "note": "checking 5000 Euro"
-    },
-    {
-      "name": "Gad Medical",
-      "note": "max 3000 Euro"
-    },
-    {
-      "name": "Riomed",
-      "note": "enjoyed last conference wanto be in"
+      "name": "BD",
+      "committed_euro": 15000.0,
+      "committed_nis": null,
+      "committed_combined_nis": 51900.0,
+      "expected_eur": 23000.0,
+      "expected_nis": 79580.0,
+      "delta_nis": 27680.0,
+      "note": "looking at pdf, want workshop Hugo"
     }
   ],
   "required_nis": 938423,

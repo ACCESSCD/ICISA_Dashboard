@@ -19,10 +19,19 @@ Rules (per column, G and H are independent):
   red-flagged → row B:I has a solid red fill -> excluded entirely (company is
                 dead/declined), regardless of G/H/I values
   committed   → G and/or H is a positive number
-  declined    → G = 0 or H = 0 (excluded from committed and todo)
-  todo        → F has a comment AND neither G nor H is a positive number, and
-                neither is explicitly 0 (declined)
+  declined    → G = 0 or H = 0 (excluded entirely)
   skip        → nothing else applies
+
+Besides the committed list, two follow-up lists are derived from comparing
+each row's committed amount (G/H, converted to a EUR-equivalent) against its
+column-I "Minimum Expected" figure:
+  pending_no_commitment → nothing committed yet (G/H both empty/zero) but I
+                          has a non-zero figure — a live prospect worth
+                          chasing for an answer.
+  expected_discrepancy  → something IS committed, but I differs from the
+                          committed EUR-equivalent — worth following up to
+                          find out whether more is coming (I > committed) or
+                          the committed figure needs correcting (I < committed).
 
 If a red-flagged row has a nonzero G, H, or I value, it's printed as a
 "red-flagged but non-zero" warning — that combination usually means the
@@ -102,7 +111,8 @@ def load_sponsorship():
     pipeline_total_eur = 0.0
 
     committed = []
-    todo = []
+    pending_no_commitment = []
+    expected_discrepancy = []
     red_flagged_nonzero = []
 
     for r in range(2, ws.max_row + 1):
@@ -126,7 +136,8 @@ def load_sponsorship():
                 })
             continue  # red-flagged rows are excluded entirely from totals
 
-        pipeline_total_eur += _to_float(ws.cell(r, EXPECTED_TOTAL_COL).value) or 0.0
+        expected_eur = _to_float(ws.cell(r, EXPECTED_TOTAL_COL).value) or 0.0
+        pipeline_total_eur += expected_eur
 
         note = ws.cell(r, NOTE_COL).value
         note = str(note).strip() if note else ''
@@ -137,6 +148,10 @@ def load_sponsorship():
         euro_amt = g if (g is not None and g > 0) else None
         nis_amt  = h if (h is not None and h > 0) else None
         declined = (g == 0) or (h == 0)
+        if declined:
+            continue
+
+        committed_eur_equiv = (euro_amt or 0) + (nis_amt or 0) / EUR_TO_NIS
 
         if euro_amt is not None or nis_amt is not None:
             combined_nis = (euro_amt or 0) * EUR_TO_NIS + (nis_amt or 0)
@@ -146,19 +161,38 @@ def load_sponsorship():
                 'nis': nis_amt,
                 'combined_nis': combined_nis,
             })
-        elif note and not declined:
-            todo.append({'name': name, 'note': note})
+            if expected_eur and abs(expected_eur - committed_eur_equiv) > 100:
+                expected_discrepancy.append({
+                    'name': name,
+                    'committed_euro': euro_amt,
+                    'committed_nis': nis_amt,
+                    'committed_combined_nis': combined_nis,
+                    'expected_eur': expected_eur,
+                    'expected_nis': expected_eur * EUR_TO_NIS,
+                    'delta_nis': expected_eur * EUR_TO_NIS - combined_nis,
+                    'note': note,
+                })
+        elif expected_eur:
+            pending_no_commitment.append({
+                'name': name,
+                'expected_eur': expected_eur,
+                'expected_nis': expected_eur * EUR_TO_NIS,
+                'note': note,
+            })
 
     wb.close()
 
     committed.sort(key=lambda x: -x['combined_nis'])
+    pending_no_commitment.sort(key=lambda x: -x['expected_eur'])
+    expected_discrepancy.sort(key=lambda x: -abs(x['delta_nis']))
     committed_delta_nis = sum(c['combined_nis'] for c in committed)
     expected_total_nis = pipeline_total_eur * EUR_TO_NIS
     gap_nis = REQUIRED_NIS - committed_delta_nis
 
     return {
         'committed': committed,
-        'todo': todo,
+        'pending_no_commitment': pending_no_commitment,
+        'expected_discrepancy': expected_discrepancy,
         'required_nis': REQUIRED_NIS,
         'expected_total_nis': expected_total_nis,
         'committed_delta_nis': committed_delta_nis,
@@ -195,9 +229,14 @@ def main():
         print(f'  {" + ".join(parts):20} {c["name"]}')
     print(f'  Combined (NIS, @{data["eur_to_nis"]} NIS/EUR): ₪{data["committed_delta_nis"]:,.0f}')
     print()
-    print(f'Todo ({len(data["todo"])} companies):')
-    for t in data['todo']:
-        print(f'  {t["name"]:40} {t["note"]}')
+    print(f'Pending, no commitment yet ({len(data["pending_no_commitment"])} companies):')
+    for t in data['pending_no_commitment']:
+        print(f'  €{t["expected_eur"]:,.0f}'.ljust(12) + f'{t["name"]:30} {t["note"]}')
+    print()
+    print(f'Expected/committed discrepancies ({len(data["expected_discrepancy"])} companies):')
+    for t in data['expected_discrepancy']:
+        print(f'  committed ₪{t["committed_combined_nis"]:,.0f} vs expected ₪{t["expected_nis"]:,.0f}'.ljust(45)
+              + f'{t["name"]:30} {t["note"]}')
     print()
     print(f'Required:       ₪{data["required_nis"]:,.0f}')
     print(f'Expected total: ₪{data["expected_total_nis"]:,.0f}')

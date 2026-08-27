@@ -239,15 +239,24 @@
     </div>
   </div>
 
-  <!-- ── Sponsorship: companies to follow up (notes) ── -->
+  <!-- ── Sponsorship: follow-up lists ── -->
   <div class="row g-3 mb-4">
-    <div class="col-12">
+    <div class="col-md-6">
       <div class="panel">
         <div class="panel-title" style="color:var(--todo)">
-          Companies to follow up
-          <span id="todo-count" style="font-weight:400;color:#aaa;"></span>
+          Awaiting an answer (no commitment yet)
+          <span id="pending-count" style="font-weight:400;color:#aaa;"></span>
         </div>
-        <div class="name-list" id="todo-list"></div>
+        <div class="name-list" id="pending-list"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+        <div class="panel-title" style="color:var(--todo)">
+          Committed vs expected discrepancy
+          <span id="discrepancy-count" style="font-weight:400;color:#aaa;"></span>
+        </div>
+        <div class="name-list" id="discrepancy-list"></div>
       </div>
     </div>
   </div>
@@ -370,7 +379,8 @@ fetch('sponsorship.json?t=' + Date.now())
   .then(data => {
     renderSponsorSummary(data);
     renderSponsorList(data.committed, data.committed_delta_nis);
-    renderTodoList(data.todo);
+    renderPendingList(data.pending_no_commitment);
+    renderDiscrepancyList(data.expected_discrepancy);
   });
 
 fetch('speakers.json?t=' + Date.now())
@@ -567,21 +577,44 @@ function renderSponsorList(committed, totalNis) {
   </div>`;
 }
 
-function renderTodoList(todo) {
-  document.getElementById('todo-count').textContent =
-    todo.length ? `(${todo.length})` : '';
+function renderPendingList(pending) {
+  document.getElementById('pending-count').textContent =
+    pending.length ? `(${pending.length})` : '';
 
-  const el = document.getElementById('todo-list');
-  if (!todo.length) {
-    el.innerHTML = '<div class="empty-note">No follow-ups pending</div>';
+  const el = document.getElementById('pending-list');
+  if (!pending.length) {
+    el.innerHTML = '<div class="empty-note">None currently</div>';
     return;
   }
-  el.innerHTML = todo.map(t =>
-    `<div class="name-item" style="background:#f5f2fc;border-left:3px solid var(--todo);flex-wrap:wrap;gap:2px;">
+  el.innerHTML = pending.map(t =>
+    `<div class="name-item" style="background:#f5f2fc;border-left:3px solid var(--todo);flex-wrap:wrap;gap:2px;justify-content:space-between;">
       <span style="font-weight:600">${esc(t.name)}</span>
-      <span style="color:#666;font-size:.8rem;margin-left:auto;padding-left:12px;font-style:italic">${esc(t.note)}</span>
-    </div>`
+      <span style="color:var(--todo);font-weight:700;font-size:.85rem;">€${t.expected_eur.toLocaleString()}</span>
+    </div>
+    <div style="color:#666;font-size:.78rem;font-style:italic;padding:0 10px 6px;">${esc(t.note)}</div>`
   ).join('');
+}
+
+function renderDiscrepancyList(discrepancy) {
+  document.getElementById('discrepancy-count').textContent =
+    discrepancy.length ? `(${discrepancy.length})` : '';
+
+  const el = document.getElementById('discrepancy-list');
+  if (!discrepancy.length) {
+    el.innerHTML = '<div class="empty-note">None currently</div>';
+    return;
+  }
+  el.innerHTML = discrepancy.map(t => {
+    const sign = t.delta_nis > 0 ? '+' : '';
+    return `<div class="name-item" style="background:#f5f2fc;border-left:3px solid var(--todo);flex-wrap:wrap;gap:2px;justify-content:space-between;">
+      <span style="font-weight:600">${esc(t.name)}</span>
+      <span style="font-size:.85rem;">
+        committed ${nis(t.committed_combined_nis)} vs expected ${nis(t.expected_nis)}
+        <strong style="color:var(--todo)">(${sign}${nis(t.delta_nis)})</strong>
+      </span>
+    </div>
+    <div style="color:#666;font-size:.78rem;font-style:italic;padding:0 10px 6px;">${esc(t.note)}</div>`;
+  }).join('');
 }
 
 function esc(s) {
