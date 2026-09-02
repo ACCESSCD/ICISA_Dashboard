@@ -87,19 +87,23 @@ def _to_float(v):
         return None
 
 
-def _is_red_row(cells):
-    """Return True if any of the first 10 cells has a solid red background fill."""
-    for cell in cells[:10]:
-        fill = cell.fill
-        if fill and fill.fill_type == 'solid':
-            color = fill.fgColor
-            if color.type == 'rgb' and color.rgb not in ('00000000', 'FF000000'):
-                r = int(color.rgb[2:4], 16)
-                g = int(color.rgb[4:6], 16)
-                b = int(color.rgb[6:8], 16)
-                if r > 180 and g < 80 and b < 80:
-                    return True
+def _cell_is_red(cell):
+    fill = cell.fill
+    if fill and fill.fill_type == 'solid':
+        color = fill.fgColor
+        if color.type == 'rgb' and color.rgb not in ('00000000', 'FF000000'):
+            r = int(color.rgb[2:4], 16)
+            g = int(color.rgb[4:6], 16)
+            b = int(color.rgb[6:8], 16)
+            return r > 180 and g < 80 and b < 80
     return False
+
+
+def _is_red_row(cells):
+    """A company is dead only when its NAME cell (column B) is filled solid red.
+    Stray red on other columns (e.g. an old note highlight) does not kill the row
+    - ACT has red on C/D only but is still a live prospect."""
+    return _cell_is_red(cells[NAME_COL - 1])
 
 
 def load_sponsorship():

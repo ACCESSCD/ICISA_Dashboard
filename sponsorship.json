@@ -14,9 +14,9 @@
     },
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "euro": 15000.0,
+      "euro": 26000.0,
       "nis": null,
-      "combined_nis": 51900.0
+      "combined_nis": 89960.0
     },
     {
       "name": "Eltec",
@@ -141,12 +141,6 @@
       "note": "playing, waiting"
     },
     {
-      "name": "Dover",
-      "expected_eur": 4000.0,
-      "expected_nis": 13840.0,
-      "note": "9-7- sent message; 18-8-26 push them"
-    },
-    {
       "name": "Shanital",
       "expected_eur": 3000.0,
       "expected_nis": 10380.0,
@@ -167,16 +161,6 @@
   ],
   "expected_discrepancy": [
     {
-      "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "committed_euro": 15000.0,
-      "committed_nis": null,
-      "committed_combined_nis": 51900.0,
-      "expected_eur": 23000.0,
-      "expected_nis": 79580.0,
-      "delta_nis": 27680.0,
-      "note": "meeting booked"
-    },
-    {
       "name": "BD",
       "committed_euro": 15000.0,
       "committed_nis": null,
@@ -188,8 +172,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 900247.02,
-  "committed_delta_nis": 632610.0,
-  "gap_nis": 305813.0,
+  "expected_total_nis": 896787.02,
+  "committed_delta_nis": 670670.0,
+  "gap_nis": 267753.0,
   "eur_to_nis": 3.46
 }
