@@ -73,6 +73,12 @@
       "combined_nis": 17500.0
     },
     {
+      "name": "Gazit",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17500.0
+    },
+    {
       "name": "Breslauer",
       "euro": 5000.0,
       "nis": null,
@@ -182,8 +188,8 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 907154.5,
-  "committed_delta_nis": 692250.0,
-  "gap_nis": 246173.0,
+  "expected_total_nis": 924654.5,
+  "committed_delta_nis": 709750.0,
+  "gap_nis": 228673.0,
   "eur_to_nis": 3.5
 }
