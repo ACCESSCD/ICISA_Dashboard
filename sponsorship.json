@@ -14,9 +14,9 @@
     },
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "euro": 15000.0,
+      "euro": 22500.0,
       "nis": null,
-      "combined_nis": 52500.0
+      "combined_nis": 78750.0
     },
     {
       "name": "Eltec",
@@ -167,16 +167,6 @@
   ],
   "expected_discrepancy": [
     {
-      "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "committed_euro": 15000.0,
-      "committed_nis": null,
-      "committed_combined_nis": 52500.0,
-      "expected_eur": 26000.0,
-      "expected_nis": 91000.0,
-      "delta_nis": 38500.0,
-      "note": "meeting booked"
-    },
-    {
       "name": "BD",
       "committed_euro": 15000.0,
       "committed_nis": null,
@@ -185,11 +175,21 @@
       "expected_nis": 80500.0,
       "delta_nis": 28000.0,
       "note": "looking at pdf, want workshop Hugo"
+    },
+    {
+      "name": "Bepex Mindray + ANI + Fisher Pykel",
+      "committed_euro": 22500.0,
+      "committed_nis": null,
+      "committed_combined_nis": 78750.0,
+      "expected_eur": 26000.0,
+      "expected_nis": 91000.0,
+      "delta_nis": 12250.0,
+      "note": "meeting booked"
     }
   ],
   "required_nis": 938423,
   "expected_total_nis": 924654.5,
-  "committed_delta_nis": 709750.0,
-  "gap_nis": 228673.0,
+  "committed_delta_nis": 736000.0,
+  "gap_nis": 202423.0,
   "eur_to_nis": 3.5
 }
