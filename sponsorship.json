@@ -4,97 +4,103 @@
       "name": "Medtechnica",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 122500.0
+      "combined_nis": 121100.0
     },
     {
       "name": "Medtronic",
       "euro": 35000.0,
       "nis": null,
-      "combined_nis": 122500.0
+      "combined_nis": 121100.0
     },
     {
       "name": "Bepex Mindray + ANI + Fisher Pykel",
       "euro": 22500.0,
       "nis": null,
-      "combined_nis": 78750.0
+      "combined_nis": 77850.0
     },
     {
       "name": "Eltec",
       "euro": 15000.0,
       "nis": null,
-      "combined_nis": 52500.0
+      "combined_nis": 51900.0
+    },
+    {
+      "name": "Gazit",
+      "euro": 15000.0,
+      "nis": null,
+      "combined_nis": 51900.0
     },
     {
       "name": "Masimo (Medtechnica)",
       "euro": 15000.0,
       "nis": null,
-      "combined_nis": 52500.0
+      "combined_nis": 51900.0
     },
     {
       "name": "BD",
       "euro": 15000.0,
       "nis": null,
-      "combined_nis": 52500.0
+      "combined_nis": 51900.0
     },
     {
       "name": "Trupharm",
       "euro": 11000.0,
       "nis": null,
-      "combined_nis": 38500.0
-    },
-    {
-      "name": "Diviscope",
-      "euro": 8000.0,
-      "nis": null,
-      "combined_nis": 28000.0
+      "combined_nis": 38060.0
     },
     {
       "name": "Lapidot",
       "euro": 8000.0,
       "nis": null,
-      "combined_nis": 28000.0
+      "combined_nis": 27680.0
     },
     {
       "name": "Base44",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Ami Technology",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Edwards (Tzamal)",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
-    },
-    {
-      "name": "Gazit",
-      "euro": 5000.0,
-      "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
     },
     {
       "name": "Breslauer",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
     },
     {
       "name": "DCS Sonosite",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
+    },
+    {
+      "name": "Eldan",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17300.0
     },
     {
       "name": "קלינטיקה",
       "euro": 5000.0,
       "nis": null,
-      "combined_nis": 17500.0
+      "combined_nis": 17300.0
+    },
+    {
+      "name": "Riomed",
+      "euro": 5000.0,
+      "nis": null,
+      "combined_nis": 17300.0
     },
     {
       "name": "Safedoctor",
@@ -106,62 +112,74 @@
       "name": "Gil",
       "euro": 4000.0,
       "nis": null,
-      "combined_nis": 14000.0
+      "combined_nis": 13840.0
     },
     {
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
-      "combined_nis": 8750.0
+      "combined_nis": 8650.0
+    },
+    {
+      "name": "maayane yeshua",
+      "euro": 2500.0,
+      "nis": null,
+      "combined_nis": 8650.0
     }
   ],
   "pending_no_commitment": [
     {
       "name": "Levant",
-      "expected_eur": 15000.0,
-      "expected_nis": 52500.0,
+      "expected_eur": 10000.0,
+      "expected_nis": 34600.0,
       "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
+    },
+    {
+      "name": "Diviscope",
+      "expected_eur": 8000.0,
+      "expected_nis": 27680.0,
+      "note": "zoom ? 21-7-26 then Liran speak"
     },
     {
       "name": "ACT",
       "expected_eur": 5000.0,
-      "expected_nis": 17500.0,
+      "expected_nis": 17300.0,
       "note": "wants to be bigger, wanted to meet me,"
-    },
-    {
-      "name": "Eldan",
-      "expected_eur": 5000.0,
-      "expected_nis": 17500.0,
-      "note": "want to be in"
-    },
-    {
-      "name": "Riomed",
-      "expected_eur": 5000.0,
-      "expected_nis": 17500.0,
-      "note": "enjoyed last conference wanto be in"
     },
     {
       "name": "Getter",
       "expected_eur": 4000.0,
-      "expected_nis": 14000.0,
+      "expected_nis": 13840.0,
       "note": "playing, waiting"
+    },
+    {
+      "name": "Dover",
+      "expected_eur": 3500.0,
+      "expected_nis": 12110.0,
+      "note": "9-7- sent message; 18-8-26 push them"
     },
     {
       "name": "Shanital",
       "expected_eur": 3000.0,
-      "expected_nis": 10500.0,
+      "expected_nis": 10380.0,
       "note": "9-7 move forward. Have echo probe has budget of 10000 nIS = 3000 Euro"
     },
     {
       "name": "Medifisher",
       "expected_eur": 3000.0,
-      "expected_nis": 10500.0,
+      "expected_nis": 10380.0,
       "note": "have baby sim dolls - 3000 Euro allowed without duchan"
+    },
+    {
+      "name": "Gad Medical",
+      "expected_eur": 3000.0,
+      "expected_nis": 10380.0,
+      "note": "max 3000 Euro"
     },
     {
       "name": "Dividend",
       "expected_eur": 2350.0,
-      "expected_nis": 8225.0,
+      "expected_nis": 8131.0,
       "note": "have fixed 10000 to give if they do"
     }
   ],
@@ -170,26 +188,16 @@
       "name": "BD",
       "committed_euro": 15000.0,
       "committed_nis": null,
-      "committed_combined_nis": 52500.0,
+      "committed_combined_nis": 51900.0,
       "expected_eur": 23000.0,
-      "expected_nis": 80500.0,
-      "delta_nis": 28000.0,
+      "expected_nis": 79580.0,
+      "delta_nis": 27680.0,
       "note": "looking at pdf, want workshop Hugo"
-    },
-    {
-      "name": "Bepex Mindray + ANI + Fisher Pykel",
-      "committed_euro": 22500.0,
-      "committed_nis": null,
-      "committed_combined_nis": 78750.0,
-      "expected_eur": 26000.0,
-      "expected_nis": 91000.0,
-      "delta_nis": 12250.0,
-      "note": "meeting booked"
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 924654.5,
-  "committed_delta_nis": 736000.0,
-  "gap_nis": 202423.0,
-  "eur_to_nis": 3.5
+  "expected_total_nis": 950417.02,
+  "committed_delta_nis": 777930.0,
+  "gap_nis": 160493.0,
+  "eur_to_nis": 3.46
 }
