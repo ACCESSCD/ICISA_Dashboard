@@ -38,9 +38,9 @@
     },
     {
       "name": "BD",
-      "euro": 15000.0,
-      "nis": null,
-      "combined_nis": 51900.0
+      "euro": null,
+      "nis": 50000.0,
+      "combined_nis": 50000.0
     },
     {
       "name": "Trupharm",
@@ -186,18 +186,18 @@
   "expected_discrepancy": [
     {
       "name": "BD",
-      "committed_euro": 15000.0,
-      "committed_nis": null,
-      "committed_combined_nis": 51900.0,
-      "expected_eur": 23000.0,
-      "expected_nis": 79580.0,
-      "delta_nis": 27680.0,
+      "committed_euro": null,
+      "committed_nis": 50000.0,
+      "committed_combined_nis": 50000.0,
+      "expected_eur": 15000.0,
+      "expected_nis": 51900.0,
+      "delta_nis": 1900.0,
       "note": "looking at pdf, want workshop Hugo"
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 950417.02,
-  "committed_delta_nis": 777930.0,
-  "gap_nis": 160493.0,
+  "expected_total_nis": 922737.02,
+  "committed_delta_nis": 776030.0,
+  "gap_nis": 162393.0,
   "eur_to_nis": 3.46
 }
