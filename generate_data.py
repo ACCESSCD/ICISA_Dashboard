@@ -37,6 +37,13 @@ MANUAL_EXCLUDE = {
     ('steffen', 'rex'),
 }
 
+# Speakers whose row is hidden in the Excel (moved off the official
+# international-invite list, e.g. reclassified as a local/Israeli speaker)
+# but who are still genuine, active speakers and must stay on the dashboard.
+FORCE_INCLUDE_HIDDEN = {
+    ('julia', 'wendon'),
+}
+
 # Known programme discrepancies that the automatic name-matching can't catch
 # (first name too short for fuzzy detection, or the programme spelling isn't a
 # near-miss of the faculty-list spelling). Correct spelling is always the
@@ -146,7 +153,9 @@ def load_speakers():
     speakers, seen = [], set()
 
     for row in ws.iter_rows(min_row=3):
-        if ws.row_dimensions[row[0].row].hidden:
+        row_num = row[0].row
+        peek_key = (norm(clean(row[5].value)), norm(clean(row[6].value)))
+        if ws.row_dimensions[row_num].hidden and peek_key not in FORCE_INCLUDE_HIDDEN:
             continue
         if _is_red_row(row):
             continue
