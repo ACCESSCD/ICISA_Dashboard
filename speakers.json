@@ -101,7 +101,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 0,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -116,7 +116,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -140,7 +140,7 @@
     "type": "Invited Speaker",
     "track": "Education",
     "country": "US",
-    "email": "saragf@stanford.edu ; adevine@stanford.edu; goldhaber.fiebert@gmail.com",
+    "email": "saragf@stanford.edu ;  goldhaber.fiebert@gmail.com",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -156,21 +156,6 @@
     "track": "Education",
     "country": "Malta",
     "email": "annemarie.camilleri@gmail.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 2,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Carolina",
-    "last": "Soledad Romero",
-    "type": "Faculty Invited Speaker",
-    "track": "Guidelines",
-    "country": "Spain",
-    "email": "carolinasoledad.md@gmail.com",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -225,27 +210,12 @@
     "spelling_issue": ""
   },
   {
-    "first": "Julia",
-    "last": "Wendon",
-    "type": "Faculty Invited Speaker",
-    "track": "Intensive care",
-    "country": "UK",
-    "email": "Julia.wendon@kcl.ac.uk \nWendonjulia@gmail.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
     "first": "Ilona",
     "last": "Bobek",
     "type": "Faculty Invited Speaker",
     "track": "Intensive care",
     "country": "Hungary",
-    "email": "Dr. Bobek Ilona <bobekilona@gmail.com>",
+    "email": "bobekilona@gmail.com",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -411,21 +381,6 @@
     "track": "Big Data and Outcomes Research\nVentilation",
     "country": "US",
     "email": "mgabreu@aol.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Brian",
-    "last": "Bateman",
-    "type": "Faculty Invited Speaker",
-    "track": "Big Data and Outcomes Research",
-    "country": "US",
-    "email": "bbateman@stanford.edu",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -611,7 +566,7 @@
     "status": "Pending",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 0,
     "spelling_issue": ""
   },
   {
@@ -735,6 +690,21 @@
     "spelling_issue": ""
   },
   {
+    "first": "Saimir",
+    "last": "Kuci",
+    "type": "",
+    "track": "Dr.",
+    "country": "",
+    "email": "saimirkuci@gmail.com",
+    "affil": "",
+    "inv": "",
+    "status": "Pending",
+    "bio": "",
+    "photo": "",
+    "tasks": 0,
+    "spelling_issue": ""
+  },
+  {
     "first": "Yaakov",
     "last": "Beilin",
     "type": "",
@@ -825,7 +795,7 @@
     "spelling_issue": "Has a talk in the Pediatrics session but no title is listed in the programme (row shows \"David Polaner\" with \"?\" where the title should be)."
   },
   {
-    "first": "Ed",
+    "first": "Edmond",
     "last": "Cohen",
     "type": "",
     "track": "",
@@ -837,7 +807,7 @@
     "bio": "",
     "photo": "",
     "tasks": 1,
-    "spelling_issue": "Faculty list first name is \"Ed\" but the programme spells it \"Edmond Cohen\" (Lungs session — Tubeless Thoracic Procedures talk). Task count below is matched via the manual alias in MANUAL_FIRST_NAME_ALIASES."
+    "spelling_issue": ""
   },
   {
     "first": "Philipp",
