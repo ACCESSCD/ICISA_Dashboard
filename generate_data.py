@@ -35,6 +35,7 @@ MANUAL_EXCLUDE = {
     ('vaida', 'sonia'),
     ('ron',   'george'),
     ('steffen', 'rex'),
+    ('chirojit', 'mukherjee'),
 }
 
 # Speakers whose row is hidden in the Excel (moved off the official
