@@ -49,6 +49,12 @@
       "combined_nis": 38060.0
     },
     {
+      "name": "Levant",
+      "euro": 9750.0,
+      "nis": null,
+      "combined_nis": 33735.0
+    },
+    {
       "name": "Lapidot",
       "euro": 8000.0,
       "nis": null,
@@ -123,12 +129,6 @@
       "note": "zoom ? 21-7-26 then Liran speak"
     },
     {
-      "name": "Levant",
-      "expected_eur": 5000.0,
-      "expected_nis": 17300.0,
-      "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
-    },
-    {
       "name": "ACT",
       "expected_eur": 5000.0,
       "expected_nis": 17300.0,
@@ -173,6 +173,16 @@
   ],
   "expected_discrepancy": [
     {
+      "name": "Levant",
+      "committed_euro": 9750.0,
+      "committed_nis": null,
+      "committed_combined_nis": 33735.0,
+      "expected_eur": 5000.0,
+      "expected_nis": 17300.0,
+      "delta_nis": -16435.0,
+      "note": "SPOKE WITH ERAN> PLS TO SPEAK TO GLOBALjuly 12?"
+    },
+    {
       "name": "BD",
       "committed_euro": null,
       "committed_nis": 50000.0,
@@ -195,7 +205,7 @@
   ],
   "required_nis": 938423,
   "expected_total_nis": 874297.02,
-  "committed_delta_nis": 743506.0,
-  "gap_nis": 194917.0,
+  "committed_delta_nis": 777241.0,
+  "gap_nis": 161182.0,
   "eur_to_nis": 3.46
 }
