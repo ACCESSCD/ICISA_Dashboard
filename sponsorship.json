@@ -115,6 +115,12 @@
       "combined_nis": 15000.0
     },
     {
+      "name": "MeoSim",
+      "euro": 3000.0,
+      "nis": null,
+      "combined_nis": 10380.0
+    },
+    {
       "name": "Jehova Witness",
       "euro": 2500.0,
       "nis": null,
@@ -205,7 +211,7 @@
   ],
   "required_nis": 938423,
   "expected_total_nis": 874297.02,
-  "committed_delta_nis": 794541.0,
-  "gap_nis": 143882.0,
+  "committed_delta_nis": 804921.0,
+  "gap_nis": 133502.0,
   "eur_to_nis": 3.46
 }
