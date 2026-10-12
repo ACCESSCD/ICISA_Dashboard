@@ -135,12 +135,6 @@
   ],
   "pending_no_commitment": [
     {
-      "name": "Diviscope",
-      "expected_eur": 8000.0,
-      "expected_nis": 27680.0,
-      "note": "zoom ? 21-7-26 then Liran speak"
-    },
-    {
       "name": "Gil",
       "expected_eur": 4000.0,
       "expected_nis": 13840.0,
@@ -210,7 +204,7 @@
     }
   ],
   "required_nis": 938423,
-  "expected_total_nis": 874297.02,
+  "expected_total_nis": 846617.02,
   "committed_delta_nis": 804921.0,
   "gap_nis": 133502.0,
   "eur_to_nis": 3.46
