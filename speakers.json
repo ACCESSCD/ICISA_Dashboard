@@ -11,7 +11,7 @@
     "status": "Confirmed",
     "bio": "Yes",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -116,22 +116,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Nadav",
-    "last": "Levy",
-    "type": "Invited Speaker",
-    "track": "Education",
-    "country": "US",
-    "email": "nadav42@gmail.com; nlevy@bidmc.harvard.edu",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
+    "tasks": 3,
     "spelling_issue": ""
   },
   {
@@ -311,7 +296,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -326,7 +311,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 3,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -375,21 +360,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Turan",
-    "last": "Alparslan",
-    "type": "Faculty Invited Speaker",
-    "track": "Big Data and Outcomes Research",
-    "country": "US",
-    "email": "Mehmet.A.Turan@uth.tmc.edu",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 3,
-    "spelling_issue": ""
-  },
-  {
     "first": "Marcelo",
     "last": "Gama de Abreu",
     "type": "Faculty Invited Speaker",
@@ -401,7 +371,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {
@@ -626,7 +596,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 1,
+    "tasks": 2,
     "spelling_issue": ""
   },
   {

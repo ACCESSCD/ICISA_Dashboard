@@ -35,7 +35,6 @@ MANUAL_EXCLUDE = {
     ('vaida', 'sonia'),
     ('ron',   'george'),
     ('steffen', 'rex'),
-    ('chirojit', 'mukherjee'),
 }
 
 # Speakers whose row is hidden in the Excel (moved off the official
@@ -130,19 +129,32 @@ def get_status(row):
 
 # ── load speakers ────────────────────────────────────────────────────────────
 
-def _is_red_row(cells):
-    """Return True if any of the first 10 cells has a solid red background fill."""
-    for cell in cells[:10]:
-        fill = cell.fill
-        if fill and fill.fill_type == 'solid':
-            color = fill.fgColor
-            if color.type == 'rgb' and color.rgb not in ('00000000', 'FF000000'):
-                r = int(color.rgb[2:4], 16)
-                g = int(color.rgb[4:6], 16)
-                b = int(color.rgb[6:8], 16)
-                if r > 180 and g < 80 and b < 80:
-                    return True
+def _cell_is_red(cell):
+    """Solid red fill? Cancellations use several reds — FFFF0000, FFFF3300 and
+    FFFF5050 have all appeared. The green/blue ceiling must stay at 100 or above
+    to catch FFFF5050 (255,80,80); a stricter <80 silently missed it and left
+    cancelled speakers on the dashboard. It must also stay below 192 so the
+    sheet's other highlights (FFC000 orange, FFFF00 yellow, FFCCFF pink) are
+    never read as cancellations.
+    """
+    fill = cell.fill
+    if fill and fill.fill_type == 'solid':
+        color = fill.fgColor
+        if color.type == 'rgb' and color.rgb not in ('00000000', 'FF000000'):
+            r = int(color.rgb[2:4], 16)
+            g = int(color.rgb[4:6], 16)
+            b = int(color.rgb[6:8], 16)
+            return r > 180 and g <= 100 and b <= 100
     return False
+
+
+def _is_red_row(cells):
+    """A speaker is cancelled only when their NAME cells (F/G) are filled red.
+    Red elsewhere on the row does not cancel them — the logistics columns carry
+    their own highlights, e.g. Ronald George has red on column B
+    ("TBC: 3nts/Reg/Soc") while his name stays green/confirmed.
+    """
+    return _cell_is_red(cells[5]) or _cell_is_red(cells[6])
 
 
 def load_speakers():
