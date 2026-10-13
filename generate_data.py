@@ -86,6 +86,17 @@ FALSE_POSITIVE_SPELLING = {
     ('michael', 'lewis'),
 }
 
+# Speakers with a real, confirmed session that doesn't live in the PGM
+# programme file at all, so the automatic counter can never see it (e.g. a
+# hands-on workshop tracked only in the separate registration-headcount
+# file, which has no speaker names for the counter to match against).
+# Maps (norm(first), norm(last)) -> known task count.
+MANUAL_TASK_OVERRIDE = {
+    # Leadership workshop, Tue Nov 17 08:30-09:30 — confirmed via
+    # Registrations/HandsOn Workshops-Table, not in the PGM file.
+    ('michael', 'lewis'): 1,
+}
+
 
 # ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -490,6 +501,12 @@ def count_tasks_and_flag(speakers):
         key = (norm(s['first']), norm(s['last']))
         if key in MANUAL_SPELLING_FLAGS and not s['spelling_issue']:
             s['spelling_issue'] = MANUAL_SPELLING_FLAGS[key]
+
+    # ── Manual task-count overrides for sessions outside the PGM file ──────
+    for s in speakers:
+        key = (norm(s['first']), norm(s['last']))
+        if key in MANUAL_TASK_OVERRIDE:
+            s['tasks'] = MANUAL_TASK_OVERRIDE[key]
 
     # ── Clear known false-positive auto-detections ──────────────────────────
     for s in speakers:
