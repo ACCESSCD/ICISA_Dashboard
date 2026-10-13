@@ -55,9 +55,6 @@ MANUAL_SPELLING_FLAGS = {
     ('jacob', 'refael'):
         'Programme lists as "Jacob Raphael" (Blood session – POC-based '
         'transfusion algorithms talk). Faculty list spelling "Refael" is correct.',
-    ('david', 'polaner'):
-        'Has a talk in the Pediatrics session but no title is listed in the '
-        'programme (row shows "David Polaner" with "?" where the title should be).',
     ('richebe', 'philippe'):
         'First/last name are swapped in the Faculty list Excel (first-name '
         'column has "Richebe", last-name column has "Philippe") — correct '
