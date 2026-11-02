@@ -70,7 +70,14 @@ OUTPUT_PATH  = Path(__file__).parent / 'sponsorship.json'
 SHEET_NAME   = '$updates'
 
 REQUIRED_NIS = 938423
-EUR_TO_NIS   = 3.46
+EUR_TO_NIS   = 3.5
+
+# Sponsors confirmed by the organiser but not yet entered in the spreadsheet.
+# Each is skipped automatically once a row with the same name (column B) exists,
+# so it can't be counted twice.
+MANUAL_COMMITTED = [
+    {'name': 'Sela', 'euro': None, 'nis': 10000.0},  # 2026-11-02, dividend company (not Sela Medical)
+]
 
 NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
 EXPECTED_TOTAL_COL = 9  # column I
@@ -184,7 +191,18 @@ def load_sponsorship():
                 'note': note,
             })
 
+    sheet_names = {str(ws.cell(r, NAME_COL).value or '').strip().lower()
+                   for r in range(2, ws.max_row + 1)}
     wb.close()
+
+    for m in MANUAL_COMMITTED:
+        if m['name'].strip().lower() in sheet_names:
+            print(f"note: manual entry '{m['name']}' is now in the spreadsheet - ignoring the manual copy")
+            continue
+        combined_nis = (m['euro'] or 0) * EUR_TO_NIS + (m['nis'] or 0)
+        committed.append({'name': m['name'], 'euro': m['euro'], 'nis': m['nis'],
+                          'combined_nis': combined_nis})
+        pipeline_total_eur += combined_nis / EUR_TO_NIS
 
     committed.sort(key=lambda x: -x['combined_nis'])
     pending_no_commitment.sort(key=lambda x: -x['expected_eur'])
