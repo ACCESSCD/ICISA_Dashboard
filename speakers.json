@@ -180,21 +180,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Julia",
-    "last": "Wendon",
-    "type": "Faculty Invited Speaker",
-    "track": "Intensive care",
-    "country": "UK",
-    "email": "Julia.wendon@kcl.ac.uk \nWendonjulia@gmail.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
     "first": "Ilona",
     "last": "Bobek",
     "type": "Faculty Invited Speaker",
@@ -341,7 +326,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 1,
     "spelling_issue": ""
   },
   {
@@ -366,21 +351,6 @@
     "track": "Perioperative Medicine",
     "country": "Australia",
     "email": "joelsymons@mac.com",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Bernhard",
-    "last": "Riedel",
-    "type": "Faculty Invited Speaker",
-    "track": "Perioperative Medicine",
-    "country": "Australia",
-    "email": "Bernhard.Riedel@petermac.org",
     "affil": "",
     "inv": "Yes",
     "status": "Confirmed",
@@ -510,21 +480,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Michaela",
-    "last": "Farber",
-    "type": "Faculty Invited Speaker",
-    "track": "Obstetrics Anesthesia",
-    "country": "USA",
-    "email": "mfarber@bwh.harvard.edu",
-    "affil": "",
-    "inv": "Yes",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 2,
-    "spelling_issue": ""
-  },
-  {
     "first": "Ronald",
     "last": "George",
     "type": "Faculty Invited Speaker",
@@ -555,21 +510,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Ovidiu",
-    "last": "Palea",
-    "type": "Faculty Invited Speaker",
-    "track": "pain",
-    "country": "",
-    "email": "ovidiu.palea@nord.ro",
-    "affil": "",
-    "inv": "",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 2,
-    "spelling_issue": ""
-  },
-  {
     "first": "Iurii / Yuriy",
     "last": "Kuchyn",
     "type": "Faculty Invited Speaker",
@@ -594,36 +534,6 @@
     "affil": "",
     "inv": "",
     "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Sofia",
-    "last": "Hernandez Torres",
-    "type": "Faculty Invited Speaker",
-    "track": "",
-    "country": "",
-    "email": "sofia.i.hernandeztorres.ctr@health.mil",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
-    "first": "Eric",
-    "last": "Snider",
-    "type": "Faculty Invited Speaker",
-    "track": "Dr.",
-    "country": "",
-    "email": "eric.j.snider3.civ@health.mil",
-    "affil": "",
-    "inv": "",
-    "status": "Pending",
     "bio": "",
     "photo": "",
     "tasks": 1,
@@ -735,21 +645,6 @@
     "spelling_issue": ""
   },
   {
-    "first": "Edmond",
-    "last": "Cohen",
-    "type": "",
-    "track": "",
-    "country": "US",
-    "email": "edmond.cohen@mountsinai.org",
-    "affil": "",
-    "inv": "",
-    "status": "Confirmed",
-    "bio": "",
-    "photo": "",
-    "tasks": 1,
-    "spelling_issue": ""
-  },
-  {
     "first": "Philipp",
     "last": "Lirk",
     "type": "",
@@ -761,7 +656,7 @@
     "status": "Confirmed",
     "bio": "",
     "photo": "",
-    "tasks": 2,
+    "tasks": 3,
     "spelling_issue": ""
   }
 ]

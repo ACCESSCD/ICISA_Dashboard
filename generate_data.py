@@ -42,9 +42,7 @@ MANUAL_EXCLUDE = {
 # Speakers whose row is hidden in the Excel (moved off the official
 # international-invite list, e.g. reclassified as a local/Israeli speaker)
 # but who are still genuine, active speakers and must stay on the dashboard.
-FORCE_INCLUDE_HIDDEN = {
-    ('julia', 'wendon'),
-}
+FORCE_INCLUDE_HIDDEN = set()  # Julia Wendon removed at organiser request, 2026-11-06
 
 # Known programme discrepancies that the automatic name-matching can't catch
 # (first name too short for fuzzy detection, or the programme spelling isn't a
