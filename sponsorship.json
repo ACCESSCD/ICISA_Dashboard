@@ -1,4 +1,25 @@
 {
+  "direct_to_igud": [
+    {
+      "name": "Medtronic",
+      "euro": null,
+      "nis": 45000.0,
+      "combined_nis": 45000.0
+    },
+    {
+      "name": "Gil",
+      "euro": null,
+      "nis": 10000.0,
+      "combined_nis": 10000.0
+    },
+    {
+      "name": "ACT",
+      "euro": null,
+      "nis": 5000.0,
+      "combined_nis": 5000.0
+    }
+  ],
+  "direct_to_igud_total_nis": 60000.0,
   "committed": [
     {
       "name": "Medtechnica",

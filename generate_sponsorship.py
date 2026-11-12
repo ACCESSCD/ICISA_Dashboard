@@ -77,6 +77,11 @@ EUR_TO_NIS   = 3.5
 # so it can't be counted twice.
 MANUAL_COMMITTED = []  # Sela moved into the spreadsheet as 'sela dividend' (2026-11-10)
 
+# Committed sponsors who paid directly to the Igud (organiser-maintained list,
+# matched against column B). Shown as its own section on the dashboard; these
+# are still part of the Committed total, not extra money.
+DIRECT_TO_IGUD = ['Medtronic', 'Gil', 'ACT']
+
 NAME_COL, NOTE_COL, EURO_COL, NIS_COL = 2, 6, 7, 8
 EXPECTED_TOTAL_COL = 9  # column I
 
@@ -209,7 +214,15 @@ def load_sponsorship():
     expected_total_nis = pipeline_total_eur * EUR_TO_NIS
     gap_nis = REQUIRED_NIS - committed_delta_nis
 
+    direct_names = {n.lower() for n in DIRECT_TO_IGUD}
+    direct_to_igud = [c for c in committed if c['name'].lower() in direct_names]
+    missing = direct_names - {c['name'].lower() for c in direct_to_igud}
+    if missing:
+        print(f"WARNING: direct-to-Igud sponsors not found among committed: {', '.join(sorted(missing))}")
+
     return {
+        'direct_to_igud': direct_to_igud,
+        'direct_to_igud_total_nis': sum(c['combined_nis'] for c in direct_to_igud),
         'committed': committed,
         'pending_no_commitment': pending_no_commitment,
         'expected_discrepancy': expected_discrepancy,
@@ -258,6 +271,8 @@ def main():
         print(f'  committed ₪{t["committed_combined_nis"]:,.0f} vs expected ₪{t["expected_nis"]:,.0f}'.ljust(45)
               + f'{t["name"]:30} {t["note"]}')
     print()
+    print(f'Paid directly to the Igud: ' + ', '.join(c['name'] for c in data['direct_to_igud'])
+          + f" = ₪{data['direct_to_igud_total_nis']:,.0f}")
     print(f'Required:       ₪{data["required_nis"]:,.0f}')
     print(f'Expected total: ₪{data["expected_total_nis"]:,.0f}')
     print(f'Committed:      ₪{data["committed_delta_nis"]:,.0f}')
