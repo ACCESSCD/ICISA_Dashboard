@@ -175,8 +175,9 @@
     </div>
     <div class="col-6 col-md-3">
       <div class="stat-card" style="border-top-color:var(--navy)">
-        <div class="val" id="kpi-expected" style="color:var(--navy);font-size:1.6rem">—</div>
-        <div class="lbl">Expected Total (NIS)</div>
+        <div class="val" id="kpi-igud" style="color:var(--navy);font-size:1.6rem">—</div>
+        <div class="lbl">Paid directly to the Igud (NIS)</div>
+        <div id="kpi-igud-names" style="font-size:.72rem;color:#888;margin-top:2px;"></div>
       </div>
     </div>
     <div class="col-6 col-md-3">
@@ -202,20 +203,6 @@
           <span id="sponsor-total" style="font-weight:400;color:#aaa;"></span>
         </div>
         <div id="sponsor-list"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Sponsorship: paid directly to the Igud ── -->
-  <div class="row g-3 mb-4">
-    <div class="col-12">
-      <div class="panel">
-        <div class="panel-title" style="color:var(--sponsor)">
-          Paid directly to the Igud
-          <span id="igud-total" style="font-weight:400;color:#aaa;"></span>
-        </div>
-        <div id="igud-list"></div>
-        <div style="font-size:.75rem;color:#888;padding:6px 10px 0;">Included in the Committed total above</div>
       </div>
     </div>
   </div>
@@ -393,7 +380,6 @@ fetch('sponsorship.json?t=' + Date.now())
   .then(data => {
     renderSponsorSummary(data);
     renderSponsorList(data.committed, data.committed_delta_nis);
-    renderIgudList(data.direct_to_igud, data.direct_to_igud_total_nis);
     renderPendingList(data.pending_no_commitment);
     renderDiscrepancyList(data.expected_discrepancy);
   });
@@ -564,7 +550,9 @@ function nis(n)  { return `₪${Math.round(n).toLocaleString()}`; }
 
 function renderSponsorSummary(data) {
   document.getElementById('kpi-required').textContent  = nis(data.required_nis);
-  document.getElementById('kpi-expected').textContent  = nis(data.expected_total_nis);
+  document.getElementById('kpi-igud').textContent     = nis(data.direct_to_igud_total_nis || 0);
+  document.getElementById('kpi-igud-names').textContent =
+    (data.direct_to_igud || []).map(c => c.name).join(', ');
   document.getElementById('kpi-committed').textContent = nis(data.committed_delta_nis);
   document.getElementById('kpi-gap').textContent       = nis(data.gap_nis);
 }
@@ -589,28 +577,6 @@ function renderSponsorList(committed, totalNis) {
   }).join('') +
   `<div style="text-align:right;padding:8px 10px 2px;font-weight:700;color:var(--sponsor);border-top:1px solid #d0eadb;margin-top:6px;">
     Combined total: ${nis(totalNis)}
-  </div>`;
-}
-
-function renderIgudList(list, totalNis) {
-  const el = document.getElementById('igud-list');
-  if (!el) return;
-  document.getElementById('igud-total').textContent = list && list.length ? `— ${nis(totalNis)}` : '';
-  if (!list || !list.length) {
-    el.innerHTML = '<div class="empty-note">None recorded</div>';
-    return;
-  }
-  el.innerHTML = list.map(c => {
-    const amounts = [];
-    if (c.euro != null) amounts.push(`€${c.euro.toLocaleString()}`);
-    if (c.nis  != null) amounts.push(nis(c.nis));
-    return `<div class="name-item" style="background:#f0faf5;border-left:3px solid var(--sponsor);justify-content:space-between;">
-      <span style="font-weight:600">${esc(c.name)}</span>
-      <span style="color:var(--sponsor);font-weight:700;font-size:.9rem;">${amounts.join(' + ')}</span>
-    </div>`;
-  }).join('') +
-  `<div style="text-align:right;padding:8px 10px 2px;font-weight:700;color:var(--sponsor);border-top:1px solid #d0eadb;margin-top:6px;">
-    Total: ${nis(totalNis)}
   </div>`;
 }
 
